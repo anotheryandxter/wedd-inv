@@ -1,0 +1,35 @@
+{
+  "version": 3,
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/VSCode_wedd-inv_edge-wrapper_5a97d528.js",
+        "server/edge/chunks/[root-of-the-server]__79e5d36e._.js",
+        "server/edge/chunks/VSCode_wedd-inv_d77c4c65._.js",
+        "server/edge/chunks/[root-of-the-server]__f9ec1d90._.js",
+        "server/edge/chunks/turbopack-VSCode_wedd-inv_edge-wrapper_fd1d1474.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/admin(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/admin/:path*"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "TZt-QM55llbT-47LAM1PG",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "m01z5464Oby8aaq94DOkFQMnbau5pDpatnoqRTsgDr0=",
+        "__NEXT_PREVIEW_MODE_ID": "4d3cc657e7c73ec4150681c6bea36c4c",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "0827509b2fb153f7e94274686e3f2eca6d4a15e34e0deddf18cfbd30fa3072f9",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "96c87a0a8df2023f8061bd29ed0d3abc28ace7190af9470ded6676b7e65ace45"
+      }
+    }
+  },
+  "sortedMiddleware": [
+    "/"
+  ],
+  "functions": {}
+}

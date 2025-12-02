@@ -1,0 +1,20 @@
+{
+  "node": {
+    "6096b1b0f86bda17ac89eaf373cd541d2a379952d2": {
+      "workers": {
+        "app/admin/login/page": {
+          "moduleId": 79110,
+          "async": false,
+          "exportedName": "loginAdmin",
+          "filename": "VSCode/wedd-inv/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/login/page": "action-browser"
+      },
+      "exportedName": "loginAdmin",
+      "filename": "VSCode/wedd-inv/lib/actions.ts"
+    }
+  },
+  "edge": {}
+}

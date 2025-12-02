@@ -1,0 +1,3 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["chunks/VSCode_wedd-inv_edge-wrapper_5a97d528.js",47208,(e,t,h)=>{self._ENTRIES||={};let n=Promise.resolve().then(()=>e.i(36271));n.catch(()=>{}),self._ENTRIES.middleware_middleware=new Proxy(n,{get(e,t){if("then"===t)return(t,h)=>e.then(t,h);let h=(...h)=>e.then(e=>(0,e[t])(...h));return h.then=(h,n)=>e.then(e=>e[t]).then(h,n),h}})}]);
+
+//# sourceMappingURL=VSCode_wedd-inv_edge-wrapper_5a97d528.js.map

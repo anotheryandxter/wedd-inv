@@ -1,0 +1,12 @@
+{
+  "pages": {
+    "/_app": []
+  },
+  "devFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [
+    "static/TZt-QM55llbT-47LAM1PG/_ssgManifest.js",
+    "static/TZt-QM55llbT-47LAM1PG/_buildManifest.js"
+  ],
+  "rootMainFiles": []
+}

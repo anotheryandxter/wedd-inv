@@ -1,0 +1,6 @@
+-- 008_add_background_image.sql
+-- REMOVED: migration intentionally cleared per repository request.
+-- The corresponding database change (adding `background_image`) was already applied
+-- to your database and you requested the migration file removed to avoid confusion.
+-- If you need to drop the column in the future, run:
+-- ALTER TABLE wedding_settings DROP COLUMN IF EXISTS background_image;

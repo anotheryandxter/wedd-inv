@@ -1,0 +1,50 @@
+{
+  "node": {
+    "707fcd43996819762dc75ddf0abac3a4ed7b031c51": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/VSCode/wedd-inv/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/VSCode/wedd-inv/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateRSVP",
+          "filename": "VSCode/wedd-inv/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "updateRSVP",
+      "filename": "VSCode/wedd-inv/lib/actions.ts"
+    },
+    "40a174fa9d29da1d096e047a12586ecfd5b9fd3397": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/VSCode/wedd-inv/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/VSCode/wedd-inv/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "submitComment",
+          "filename": "VSCode/wedd-inv/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "submitComment",
+      "filename": "VSCode/wedd-inv/lib/actions.ts"
+    },
+    "00659d7fa23e09197aa35c45470b309f1f2ddb9f5f": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/VSCode/wedd-inv/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/VSCode/wedd-inv/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getComments",
+          "filename": "VSCode/wedd-inv/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "exportedName": "getComments",
+      "filename": "VSCode/wedd-inv/lib/actions.ts"
+    }
+  },
+  "edge": {}
+}

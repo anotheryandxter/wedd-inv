@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/login/page": "/admin/login",
+  "/admin/page": "/admin",
+  "/admin/reset-password/page": "/admin/reset-password",
+  "/api/admin/blast/[id]/route": "/api/admin/blast/[id]",
+  "/api/admin/blast/batch/route": "/api/admin/blast/batch",
+  "/api/admin/reset-password/route": "/api/admin/reset-password",
+  "/api/supabase-check/route": "/api/supabase-check",
+  "/api/upload/route": "/api/upload",
+  "/page": "/"
+}

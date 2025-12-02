@@ -1,0 +1,8 @@
+(globalThis.TURBOPACK_CHUNK_LISTS || (globalThis.TURBOPACK_CHUNK_LISTS = [])).push({
+    script: typeof document === "object" ? document.currentScript : undefined,
+    chunks: [
+  "static/chunks/0a2b7__pnpm_c4ca369f._.js",
+  "static/chunks/VSCode_wedd-inv_0b03a457._.js"
+],
+    source: "dynamic"
+});

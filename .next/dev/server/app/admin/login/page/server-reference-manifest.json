@@ -1,0 +1,20 @@
+{
+  "node": {
+    "606f1055e72dea0b21187aefe9fe2e50a61dfafe56": {
+      "workers": {
+        "app/admin/login/page": {
+          "moduleId": "[project]/VSCode/wedd-inv/.next-internal/server/app/admin/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/VSCode/wedd-inv/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "loginAdmin",
+          "filename": "VSCode/wedd-inv/lib/actions.ts"
+        }
+      },
+      "layer": {
+        "app/admin/login/page": "action-browser"
+      },
+      "exportedName": "loginAdmin",
+      "filename": "VSCode/wedd-inv/lib/actions.ts"
+    }
+  },
+  "edge": {}
+}

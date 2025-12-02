@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/chiio/VSCode/wedd-inv/app/admin/layout.tsx"],"sourcesContent":["import type React from \"react\"\nimport { createClient } from \"@/lib/supabase/server\"\n\nexport default async function AdminLayout({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  const supabase = await createClient()\n  const {\n    data: { user },\n  } = await supabase.auth.getUser()\n\n  // Allow access to login page without auth\n  return <>{children}</>\n}\n"],"names":[],"mappings":";;;;;AACA;;;AAEe,eAAe,YAAY,EACxC,QAAQ,EAGT;IACC,MAAM,WAAW,MAAM,IAAA,kKAAY;IACnC,MAAM,EACJ,MAAM,EAAE,IAAI,EAAE,EACf,GAAG,MAAM,SAAS,IAAI,CAAC,OAAO;IAE/B,0CAA0C;IAC1C,qBAAO;kBAAG;;AACZ"}}]
+}

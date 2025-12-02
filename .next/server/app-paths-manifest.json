@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/reset-password/page": "app/admin/reset-password/page.js",
+  "/api/admin/blast/[id]/route": "app/api/admin/blast/[id]/route.js",
+  "/api/admin/blast/batch/route": "app/api/admin/blast/batch/route.js",
+  "/api/admin/reset-password/route": "app/api/admin/reset-password/route.js",
+  "/api/supabase-check/route": "app/api/supabase-check/route.js",
+  "/api/upload/route": "app/api/upload/route.js",
+  "/page": "app/page.js"
+}
