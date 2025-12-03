@@ -52,10 +52,12 @@ module.exports = [
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/VSCode/wedd-inv/node_modules/.pnpm/next@16.0.3_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/loaders/next-flight-loader/server-reference.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$lib$2f$supabase$2f$server$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/VSCode/wedd-inv/lib/supabase/server.ts [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f40$supabase$2b$supabase$2d$js$40$2$2e$86$2e$0$2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$module$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/VSCode/wedd-inv/node_modules/.pnpm/@supabase+supabase-js@2.86.0/node_modules/@supabase/supabase-js/dist/module/index.js [app-rsc] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/VSCode/wedd-inv/node_modules/.pnpm/next@16.0.3_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/cache.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$api$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/VSCode/wedd-inv/node_modules/.pnpm/next@16.0.3_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/api/navigation.react-server.js [app-rsc] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/VSCode/wedd-inv/node_modules/.pnpm/next@16.0.3_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/client/components/navigation.react-server.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$action$2d$validate$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/VSCode/wedd-inv/node_modules/.pnpm/next@16.0.3_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/loaders/next-flight-loader/action-validate.js [app-rsc] (ecmascript)");
+;
 ;
 ;
 ;
@@ -167,7 +169,15 @@ async function getWeddingSettings() {
     return data;
 }
 async function updateWeddingSettings(settingsId, settings) {
-    const supabase = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$lib$2f$supabase$2f$server$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createClient"])();
+    // Prefer service-role client for writes when available to avoid RLS/anon issues
+    let supabase = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$lib$2f$supabase$2f$server$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createClient"])();
+    if (process.env.SUPABASE_SERVICE_ROLE_KEY && process.env.SUPABASE_URL) {
+        supabase = (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f40$supabase$2b$supabase$2d$js$40$2$2e$86$2e$0$2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$module$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createClient"])(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
+            auth: {
+                persistSession: false
+            }
+        });
+    }
     const { data, error } = await supabase.from("wedding_settings").update({
         ...settings,
         updated_at: new Date().toISOString()
@@ -402,10 +412,29 @@ function normalizePhoneForWa(phone) {
     return digits;
 }
 function interpolateTemplate(template, data) {
-    return template.replace(/\{(\w+)\}/g, (_, key)=>{
+    // Support both {key} and {{key}} placeholders
+    return template.replace(/\{\{?\s*(\w+)\s*\}?\}/g, (_, key)=>{
         const v = data[key];
         return v == null ? "" : String(v);
     });
+}
+function transformFormattingForWhatsApp(text) {
+    if (!text) return text;
+    // HTML-like tags -> WhatsApp formatting
+    // Bold/strong -> *text*
+    text = text.replace(/<\s*(?:b|strong)>([\s\S]*?)<\s*\/\s*(?:b|strong)>/gi, '*$1*');
+    // Italic/em -> _text_
+    text = text.replace(/<\s*(?:i|em)>([\s\S]*?)<\s*\/\s*(?:i|em)>/gi, '_$1_');
+    // Strikethrough -> ~text~
+    text = text.replace(/<\s*(?:s|strike|del)>([\s\S]*?)<\s*\/\s*(?:s|strike|del)>/gi, '~$1~');
+    // Code/pre -> ```text``` (preserve newlines)
+    text = text.replace(/<\s*(?:pre|code)>([\s\S]*?)<\s*\/\s*(?:pre|code)>/gi, '```$1```');
+    // Underline is not supported by WhatsApp; map <u> to italic as closest alternative
+    text = text.replace(/<\s*u>([\s\S]*?)<\s*\/\s*u>/gi, '_$1_');
+    // Markdown-like shortcuts: **bold** -> *bold*, __underline__ -> _underline_ (note: WhatsApp doesn't support underline)
+    text = text.replace(/\*\*(.*?)\*\*/g, '*$1*');
+    text = text.replace(/__(.*?)__/g, '_$1_');
+    return text;
 }
 async function ensureGuestUniqueCode(id) {
     const supabase = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$lib$2f$supabase$2f$server$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createClient"])();
@@ -447,14 +476,24 @@ async function generateBlastMessageForGuest(guestId) {
         }).eq("id", guestId);
         guest.unique_code = code;
     }
-    const baseUrl = ("TURBOPACK compile-time value", "https://wedd-inv-ten.vercel.app") || process.env.SITE_URL || "";
-    const link = `${baseUrl}/invitation/${guest.unique_slug || guest.id}?code=${guest.unique_code}`;
+    const baseUrlRaw = ("TURBOPACK compile-time value", "https://wedd-inv-ten.vercel.app") || process.env.SITE_URL || "";
+    const baseUrl = String(baseUrlRaw).replace(/\/$/, "");
+    // Make the link format match the client clipboard link: `${origin}?to=<slug>`
+    const link = `${baseUrl}?to=${encodeURIComponent(guest.unique_slug || guest.slug || guest.id)}`;
     const template = settings?.whatsapp_template || "Halo {name}, Anda diundang. Silakan lihat: {link} (kode: {unique_code})";
-    const message = interpolateTemplate(template, {
+    // Detect whether admin included a {link} placeholder; if not, we'll append the link after formatting
+    const includesLinkPlaceholder = /\{\{?\s*link\s*\}?\}/i.test(template);
+    let message = interpolateTemplate(template, {
         name: guest.name,
         unique_code: guest.unique_code,
         link
     });
+    // Apply WhatsApp formatting conversions (HTML-like tags or markdown shortcuts)
+    message = transformFormattingForWhatsApp(message);
+    // If template didn't include link, append it at the end so the invite always contains the URL
+    if (!includesLinkPlaceholder) {
+        message = `${message}\n\n${link}`;
+    }
     const phone = normalizePhoneForWa(guest.phone);
     if (!phone) return {
         success: false,
@@ -495,8 +534,9 @@ async function sendWhatsAppViaTwilio(guestId) {
     }
     const settings = await getWeddingSettings();
     const template = settings?.whatsapp_template || "Halo {name}, Anda diundang. Silakan lihat: {link} (kode: {unique_code})";
-    const baseUrl = ("TURBOPACK compile-time value", "https://wedd-inv-ten.vercel.app") || process.env.SITE_URL || "";
-    const link = `${baseUrl}/invitation/${guest.unique_slug || guest.id}?code=${code}`;
+    const baseUrlRaw = ("TURBOPACK compile-time value", "https://wedd-inv-ten.vercel.app") || process.env.SITE_URL || "";
+    const baseUrl = String(baseUrlRaw).replace(/\/$/, "");
+    const link = `${baseUrl}?to=${encodeURIComponent(guest.unique_slug || guest.slug || guest.id)}`;
     const message = interpolateTemplate(template, {
         name: guest.name,
         unique_code: code,

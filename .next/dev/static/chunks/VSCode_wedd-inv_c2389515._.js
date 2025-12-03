@@ -420,7 +420,7 @@ function HeroSection({ settings }) {
                         viewport: {
                             once: true
                         },
-                        className: "text-sm tracking-[0.3em] text-gold uppercase mb-6",
+                        className: "text-sm tracking-[0.3em] text-black uppercase mb-6",
                         children: "We Are Getting Married"
                     }, void 0, false, {
                         fileName: "[project]/VSCode/wedd-inv/components/invitation/hero-section.tsx",
@@ -445,7 +445,7 @@ function HeroSection({ settings }) {
                         className: "mb-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-gold-gradient font-medium mb-2 leading-tight break-words whitespace-normal",
+                                className: "font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-black font-medium mb-2 leading-tight break-words whitespace-normal",
                                 children: settings.groom_name
                             }, void 0, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/invitation/hero-section.tsx",
@@ -461,7 +461,7 @@ function HeroSection({ settings }) {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-gold-gradient font-medium leading-tight break-words whitespace-normal",
+                                className: "font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-black font-medium leading-tight break-words whitespace-normal",
                                 children: settings.bride_name
                             }, void 0, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/invitation/hero-section.tsx",
@@ -733,8 +733,10 @@ function CoupleSection({ settings }) {
                     className: "text-center mb-12",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-sm tracking-[0.2em] text-gold uppercase mb-2",
-                            children: "Bismillahirrahmanirrahim"
+                            className: "text-xl md:text-2xl text-gold mb-2 font-[var(--font-amiri)]",
+                            lang: "ar",
+                            dir: "rtl",
+                            children: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
                         }, void 0, false, {
                             fileName: "[project]/VSCode/wedd-inv/components/invitation/couple-section.tsx",
                             lineNumber: 21,
@@ -1609,7 +1611,7 @@ var _s = __turbopack_context__.k.signature();
 function GallerySection({ images }) {
     _s();
     const [selectedIndex, setSelectedIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    // shuffle and pick up to 9 unique images for display on the invitation
+    // shuffle and pick images for display on the invitation
     const displayedImages = (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
         "GallerySection.useMemo[displayedImages]": ()=>{
             const src = images && images.length > 0 ? images.slice() : [];
@@ -1620,7 +1622,8 @@ function GallerySection({ images }) {
                 src[i] = src[j];
                 src[j] = tmp;
             }
-            return src.slice(0, 9);
+            return src.slice(0, 9) // Take 9 images
+            ;
         }
     }["GallerySection.useMemo[displayedImages]"], [
         images
@@ -1716,7 +1719,56 @@ function GallerySection({ images }) {
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid grid-cols-2 md:grid-cols-3 gap-4",
-                    children: defaultImages.map((image, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$framer$2d$motion$40$12$2e$23$2e$24_$40$emotion$2b$is$2d$prop$2d$valid$40$1$2e$4$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                    children: [
+                        defaultImages.slice(0, 8).map((image, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$framer$2d$motion$40$12$2e$23$2e$24_$40$emotion$2b$is$2d$prop$2d$valid$40$1$2e$4$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                initial: {
+                                    opacity: 0,
+                                    scale: 0.9
+                                },
+                                whileInView: {
+                                    opacity: 1,
+                                    scale: 1
+                                },
+                                viewport: {
+                                    once: true
+                                },
+                                transition: {
+                                    delay: index * 0.1
+                                },
+                                className: "relative aspect-square cursor-pointer group overflow-hidden rounded-2xl",
+                                onClick: ()=>openLightbox(index),
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: image.image_url || "/placeholder.svg",
+                                        alt: image.caption || `Gallery ${index + 1}`,
+                                        className: "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    }, void 0, false, {
+                                        fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
+                                        lineNumber: 69,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-white font-medium",
+                                            children: image.caption
+                                        }, void 0, false, {
+                                            fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
+                                            lineNumber: 75,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
+                                        lineNumber: 74,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, image.id, true, {
+                                fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
+                                lineNumber: 60,
+                                columnNumber: 13
+                            }, this)),
+                        defaultImages[8] && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$framer$2d$motion$40$12$2e$23$2e$24_$40$emotion$2b$is$2d$prop$2d$valid$40$1$2e$4$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                             initial: {
                                 opacity: 0,
                                 scale: 0.9
@@ -1729,42 +1781,43 @@ function GallerySection({ images }) {
                                 once: true
                             },
                             transition: {
-                                delay: index * 0.1
+                                delay: 8 * 0.1
                             },
-                            className: "relative aspect-square cursor-pointer group overflow-hidden rounded-2xl",
-                            onClick: ()=>openLightbox(index),
+                            className: "hidden md:block relative aspect-square cursor-pointer group overflow-hidden rounded-2xl",
+                            onClick: ()=>openLightbox(8),
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                    src: image.image_url || "/placeholder.svg",
-                                    alt: image.caption || `Gallery ${index + 1}`,
+                                    src: defaultImages[8].image_url || "/placeholder.svg",
+                                    alt: defaultImages[8].caption || "Gallery 9",
                                     className: "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 }, void 0, false, {
                                     fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 90,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-white font-medium",
-                                        children: image.caption
+                                        children: defaultImages[8].caption
                                     }, void 0, false, {
                                         fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 96,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                    lineNumber: 74,
+                                    lineNumber: 95,
                                     columnNumber: 15
                                 }, this)
                             ]
-                        }, image.id, true, {
+                        }, defaultImages[8].id, true, {
                             fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                            lineNumber: 60,
+                            lineNumber: 81,
                             columnNumber: 13
-                        }, this))
-                }, void 0, false, {
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
                     lineNumber: 58,
                     columnNumber: 9
@@ -1790,12 +1843,12 @@ function GallerySection({ images }) {
                                     className: "w-8 h-8"
                                 }, void 0, false, {
                                     fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 116,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                lineNumber: 91,
+                                lineNumber: 112,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1808,12 +1861,12 @@ function GallerySection({ images }) {
                                     className: "w-8 h-8"
                                 }, void 0, false, {
                                     fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                    lineNumber: 105,
+                                    lineNumber: 126,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                lineNumber: 98,
+                                lineNumber: 119,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$framer$2d$motion$40$12$2e$23$2e$24_$40$emotion$2b$is$2d$prop$2d$valid$40$1$2e$4$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].img, {
@@ -1835,7 +1888,7 @@ function GallerySection({ images }) {
                                 onClick: (e)=>e.stopPropagation()
                             }, selectedIndex, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                lineNumber: 108,
+                                lineNumber: 129,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1848,23 +1901,23 @@ function GallerySection({ images }) {
                                     className: "w-8 h-8"
                                 }, void 0, false, {
                                     fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                    lineNumber: 126,
+                                    lineNumber: 147,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                                lineNumber: 119,
+                                lineNumber: 140,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                        lineNumber: 84,
+                        lineNumber: 105,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/VSCode/wedd-inv/components/invitation/gallery-section.tsx",
-                    lineNumber: 82,
+                    lineNumber: 103,
                     columnNumber: 9
                 }, this)
             ]

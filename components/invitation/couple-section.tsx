@@ -18,7 +18,7 @@ export function CoupleSection({ settings }: CoupleSectionProps) {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm tracking-[0.2em] text-gold uppercase mb-2">Bismillahirrahmanirrahim</p>
+          <p className="text-xl md:text-2xl text-gold mb-2 font-[var(--font-amiri)]" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
           <h2 className="font-serif text-3xl md:text-4xl text-foreground">Mempelai</h2>
         </motion.div>
 

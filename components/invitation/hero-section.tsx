@@ -34,7 +34,7 @@ export function HeroSection({ settings }: HeroSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-sm tracking-[0.3em] text-gold uppercase mb-6"
+          className="text-sm tracking-[0.3em] text-black uppercase mb-6"
         >
           We Are Getting Married
         </motion.p>
@@ -46,9 +46,9 @@ export function HeroSection({ settings }: HeroSectionProps) {
           transition={{ delay: 0.2 }}
           className="mb-8"
         >
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-gold-gradient font-medium mb-2 leading-tight break-words whitespace-normal">{settings.groom_name}</h1>
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-black font-medium mb-2 leading-tight break-words whitespace-normal">{settings.groom_name}</h1>
           <p className="font-serif text-xl sm:text-2xl md:text-3xl text-gold my-4">&</p>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-gold-gradient font-medium leading-tight break-words whitespace-normal">{settings.bride_name}</h1>
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-black font-medium leading-tight break-words whitespace-normal">{settings.bride_name}</h1>
         </motion.div>
 
         <motion.div

@@ -11,7 +11,7 @@ interface GallerySectionProps {
 
 export function GallerySection({ images }: GallerySectionProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-  // shuffle and pick up to 9 unique images for display on the invitation
+  // shuffle and pick images for display on the invitation
   const displayedImages = useMemo(() => {
     const src = images && images.length > 0 ? images.slice() : []
     // Fisher-Yates shuffle
@@ -21,7 +21,7 @@ export function GallerySection({ images }: GallerySectionProps) {
       src[i] = src[j]
       src[j] = tmp
     }
-    return src.slice(0, 9)
+    return src.slice(0, 9) // Take 9 images
   }, [images])
 
   const defaultImages: GalleryItem[] =
@@ -56,7 +56,7 @@ export function GallerySection({ images }: GallerySectionProps) {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {defaultImages.map((image, index) => (
+          {defaultImages.slice(0, 8).map((image, index) => (
             <motion.div
               key={image.id}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -76,6 +76,27 @@ export function GallerySection({ images }: GallerySectionProps) {
               </div>
             </motion.div>
           ))}
+          {/* Show 9th image only on tablet/desktop */}
+          {defaultImages[8] && (
+            <motion.div
+              key={defaultImages[8].id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 8 * 0.1 }}
+              className="hidden md:block relative aspect-square cursor-pointer group overflow-hidden rounded-2xl"
+              onClick={() => openLightbox(8)}
+            >
+              <img
+                src={defaultImages[8].image_url || "/placeholder.svg"}
+                alt={defaultImages[8].caption || "Gallery 9"}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-white font-medium">{defaultImages[8].caption}</p>
+              </div>
+            </motion.div>
+          )}
         </div>
 
         {/* Lightbox */}
