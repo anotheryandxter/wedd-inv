@@ -98,15 +98,16 @@ export async function generateMetadata(): Promise<Metadata> {
         images: [
           {
             url: ogImageAbsolute,
-            width: 1200,
-            height: 630,
+            width: 128,
+            height: 128,
             alt: siteTitle,
           },
         ],
         type: 'website',
+        siteName: siteTitle,
       } : undefined,
       twitter: ogImageAbsolute ? {
-        card: 'summary_large_image',
+        card: 'summary',
         title: siteTitle,
         description: desc,
         images: [ogImageAbsolute],
