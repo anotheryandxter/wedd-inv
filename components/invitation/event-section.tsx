@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import type { WeddingSettings } from "@/lib/types"
-import { Calendar, Clock, MapPin, BookOpen, Music } from "lucide-react"
+import { Calendar, Clock, MapPin, HeartHandshake, Flower2 } from "lucide-react"
 
 interface EventSectionProps {
   settings: WeddingSettings
@@ -39,7 +39,7 @@ export function EventSection({ settings }: EventSectionProps) {
             className="glass rounded-3xl p-8 text-center"
           >
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/10 flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-gold" />
+              <HeartHandshake className="w-6 h-6 text-gold" />
             </div>
             <h3 className="font-serif text-2xl text-foreground mb-6">Akad Nikah</h3>
 
@@ -71,7 +71,7 @@ export function EventSection({ settings }: EventSectionProps) {
             className="glass rounded-3xl p-8 text-center"
           >
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gold/10 flex items-center justify-center">
-              <Music className="w-6 h-6 text-gold" />
+              <Flower2 className="w-6 h-6 text-gold" />
             </div>
             <h3 className="font-serif text-2xl text-foreground mb-6">Resepsi</h3>
 
