@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import type { WeddingSettings } from "@/lib/types"
 import { Calendar, Clock, MapPin, HeartHandshake, Flower2 } from "lucide-react"
+import { getEmbedUrl, getDirectionUrl } from "@/lib/map-utils"
 
 interface EventSectionProps {
   settings: WeddingSettings
@@ -96,6 +97,7 @@ export function EventSection({ settings }: EventSectionProps) {
         </div>
 
         {/* Google Maps */}
+        {settings.venue_lat && settings.venue_lng && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +105,7 @@ export function EventSection({ settings }: EventSectionProps) {
           className="mt-8 glass rounded-3xl overflow-hidden"
         >
           <iframe
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${settings.venue_lat},${settings.venue_lng}&zoom=15`}
+            src={getEmbedUrl(settings.venue_lat, settings.venue_lng)}
             width="100%"
             height="300"
             style={{ border: 0 }}
@@ -114,7 +116,7 @@ export function EventSection({ settings }: EventSectionProps) {
           />
           <div className="p-4 text-center">
             <a
-              href={`https://www.google.com/maps/dir/?api=1&destination=${settings.venue_lat},${settings.venue_lng}`}
+              href={getDirectionUrl(settings.venue_lat, settings.venue_lng)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 glass-gold rounded-full text-gold font-medium hover:opacity-90 transition-opacity"
@@ -124,6 +126,7 @@ export function EventSection({ settings }: EventSectionProps) {
             </a>
           </div>
         </motion.div>
+        )}
       </div>
     </section>
   )

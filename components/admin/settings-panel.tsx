@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Save, Loader2 } from "lucide-react"
 import { updateWeddingSettings } from "@/lib/actions"
 import { changeAdminPassword } from "@/lib/actions"
+import { extractCoordinatesFromMapInput } from "@/lib/map-utils"
 
 interface SettingsPanelProps {
   settings: WeddingSettings | null
@@ -577,23 +578,28 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
           <div className="space-y-3">
             {/* Location search using Google Places (Places API key required) */}
             <div className="space-y-2">
-              <Label htmlFor="place_search">Cari Lokasi (Google Maps)</Label>
-              <input
-                id="place_search"
-                placeholder="Cari nama tempat atau alamat..."
-                value={(formData as any).place_query || ""}
+              <Label htmlFor="map_input">Input Lokasi Google Maps</Label>
+              <Textarea
+                id="map_input"
+                placeholder="Masukkan salah satu:&#10;1. Latitude, Longitude (contoh: -7.395261, 109.244876)&#10;2. Google Maps URL (contoh: https://maps.app.goo.gl/...)&#10;3. Iframe embed code"
+                rows={4}
                 onChange={(e) => {
-                  const q = e.target.value
-                  setFormData((p) => ({ ...p, place_query: q }))
+                  const input = e.target.value
+                  const coords = extractCoordinatesFromMapInput(input)
+                  if (coords) {
+                    setFormData((p) => ({ ...p, venue_lat: coords.lat, venue_lng: coords.lng }))
+                  }
                 }}
-                className="w-full px-4 py-3 rounded-xl bg-white/50 border border-border focus:border-gold focus:outline-none transition-colors placeholder:text-muted-foreground"
+                className="bg-white/50 font-mono text-sm"
               />
-              <p className="text-sm text-muted-foreground">Ketik nama tempat untuk mencari; hasil akan mengisi Latitude/Longitude otomatis.</p>
+              <p className="text-sm text-muted-foreground">
+                Paste koordinat, URL Google Maps, atau kode iframe embed. Koordinat akan otomatis terdeteksi.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="venue_lat">Latitude</Label>
+              <Label htmlFor="venue_lat">Latitude (Terdeteksi)</Label>
               <Input
                 id="venue_lat"
                 name="venue_lat"
@@ -603,10 +609,11 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                 onChange={handleChange}
                 placeholder="-6.2088"
                 className="bg-white/50"
+                readOnly
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="venue_lng">Longitude</Label>
+              <Label htmlFor="venue_lng">Longitude (Terdeteksi)</Label>
               <Input
                 id="venue_lng"
                 name="venue_lng"
@@ -616,6 +623,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                 onChange={handleChange}
                 placeholder="106.8456"
                 className="bg-white/50"
+                readOnly
               />
             </div>
             </div>
