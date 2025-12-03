@@ -22,7 +22,7 @@ export function GalleryPanel({ gallery, onUpdate }: GalleryPanelProps) {
 
   const handleAddImage = async () => {
     if (!newImage.image_url.trim()) return
-    if (gallery.length >= 30) return alert('Batas maksimal 30 foto')
+    if (gallery.length >= 50) return alert('Batas maksimal 50 foto')
 
     startTransition(async () => {
       const result = await addGalleryItem(newImage.image_url, newImage.caption)
@@ -45,13 +45,13 @@ export function GalleryPanel({ gallery, onUpdate }: GalleryPanelProps) {
     if (!files) return
     const list = Array.from(files as any)
     if (list.length === 0) return
-    const available = 30 - gallery.length
-    if (available <= 0) return alert('Batas maksimal 30 foto tercapai')
+    const available = 50 - gallery.length
+    if (available <= 0) return alert('Batas maksimal 50 foto tercapai')
 
     let toUpload = list
     if (list.length > available) {
       toUpload = list.slice(0, available)
-      alert(`Hanya ${available} file yang akan diunggah (batas 30 foto).`)
+      alert(`Hanya ${available} file yang akan diunggah (batas 50 foto).`)
     }
 
     setIsUploading(true)
@@ -62,8 +62,8 @@ export function GalleryPanel({ gallery, onUpdate }: GalleryPanelProps) {
     for (let i = 0; i < toUpload.length; i += 1) {
       const f = toUpload[i]
       try {
-        // compress image to <= 1MB before upload
-        const compressed = await compressImageToMaxSize(f, 1_000_000)
+        // compress image to <= 1.5MB before upload
+        const compressed = await compressImageToMaxSize(f, 1_500_000)
         const fd = new FormData()
         fd.append('file', compressed, compressed.name || f.name)
         fd.append('filename', compressed.name || f.name)
@@ -110,10 +110,10 @@ export function GalleryPanel({ gallery, onUpdate }: GalleryPanelProps) {
     let width = imgBitmap.width
     let height = imgBitmap.height
 
-    // scale down if very large
+    // scale down if very large (FHD max)
     const maxDim = Math.max(width, height)
-    if (maxDim > 2000) {
-      const ratio = 2000 / maxDim
+    if (maxDim > 1920) {
+      const ratio = 1920 / maxDim
       width = Math.round(width * ratio)
       height = Math.round(height * ratio)
     }
