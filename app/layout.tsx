@@ -81,11 +81,36 @@ export async function generateMetadata(): Promise<Metadata> {
         })()
       : undefined
 
+    // Use splash_image for social share preview, fallback to hero_image
+    const ogImage = settings?.splash_image || settings?.hero_image || null
+    const ogImageAbsolute = ogImage && !/^https?:\/\//i.test(ogImage) && baseUrl
+      ? `${baseUrl}/${String(ogImage).replace(/^\/*/, "")}`
+      : ogImage
+
     return {
       title: siteTitle,
       description: desc,
       icons,
       generator: "v0.app",
+      openGraph: ogImageAbsolute ? {
+        title: siteTitle,
+        description: desc,
+        images: [
+          {
+            url: ogImageAbsolute,
+            width: 1200,
+            height: 630,
+            alt: siteTitle,
+          },
+        ],
+        type: 'website',
+      } : undefined,
+      twitter: ogImageAbsolute ? {
+        card: 'summary_large_image',
+        title: siteTitle,
+        description: desc,
+        images: [ogImageAbsolute],
+      } : undefined,
     }
     } catch (err) {
     return defaultMetadata
