@@ -25,7 +25,8 @@ export async function GET(request: Request, { params }: { params: { id?: string 
   }
 
   try {
-    const res = await generateBlastMessageForGuest(norm)
+    const origin = new URL(request.url).origin
+    const res = await generateBlastMessageForGuest(norm, origin)
     return NextResponse.json(res)
   } catch (err) {
     console.error('[blast] Error generating blast for id=', norm, err)

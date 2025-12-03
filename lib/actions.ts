@@ -415,7 +415,7 @@ function substringRandomCode() {
   return Math.random().toString(36).substr(2, 9)
 }
 
-export async function generateBlastMessageForGuest(guestId: string) {
+export async function generateBlastMessageForGuest(guestId: string, origin?: string) {
   const supabase = await createClient()
   const { data: guest, error: gErr } = await supabase.from("guests").select("*").eq("id", guestId).single()
   if (gErr || !guest) {
@@ -432,7 +432,8 @@ export async function generateBlastMessageForGuest(guestId: string) {
     guest.unique_code = code
   }
 
-  const baseUrlRaw = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || ""
+  // Use origin parameter if provided (dynamic from request), otherwise fallback to env var
+  const baseUrlRaw = origin || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || ""
   const baseUrl = String(baseUrlRaw).replace(/\/$/, "")
   // Make the link format match the client clipboard link: `${origin}?to=<slug>`
   const link = `${baseUrl}?to=${encodeURIComponent(guest.unique_slug || guest.slug || guest.id)}`

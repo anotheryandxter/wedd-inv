@@ -3,6 +3,7 @@ import { generateBlastMessageForGuest } from '@/lib/actions'
 
 export async function POST(request: Request) {
   try {
+    const origin = new URL(request.url).origin
     const body = await request.json()
     // Filter out falsy values and literal strings "undefined"/"null" that can appear from UI
     const ids: string[] = Array.isArray(body.ids)
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
       try {
         // reuse the same helper
         // eslint-disable-next-line no-await-in-loop
-        const r = await generateBlastMessageForGuest(id)
+        const r = await generateBlastMessageForGuest(id, origin)
         results.push({ id, ...r })
       } catch (err) {
         results.push({ id, success: false, error: String(err) })

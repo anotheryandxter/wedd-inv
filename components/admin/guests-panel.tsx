@@ -36,9 +36,8 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
   const filteredGuests = guests.filter((guest) => {
     const q = searchTerm.toLowerCase()
     return (
-      guest.name.toLowerCase().includes(q) ||
-      (guest.phone || "").toLowerCase().includes(q) ||
-      (guest.address || "").toLowerCase().includes(q)
+      (guest.name || "").toLowerCase().includes(q) ||
+      (guest.phone || "").toLowerCase().includes(q)
     )
   })
 
@@ -78,7 +77,6 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
       const payload: any = {
         name: editForm.name,
         phone: editForm.phone,
-        address: editForm.address,
         guest_count: editForm.guest_count,
         attendance_status: editForm.attendance_status,
       }
@@ -297,15 +295,6 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
                 onChange={(e) =>
                   setNewGuest((prev) => ({ ...prev, guest_count: Number.parseInt(e.target.value) || 1 }))
                 }
-                className="bg-white/50"
-              />
-            </div>
-            <div className="space-y-2 md:col-span-2">
-              <Label>Alamat</Label>
-              <Input
-                value={newGuest.address}
-                onChange={(e) => setNewGuest((prev) => ({ ...prev, address: e.target.value }))}
-                placeholder="Alamat lengkap"
                 className="bg-white/50"
               />
             </div>

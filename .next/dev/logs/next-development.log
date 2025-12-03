@@ -866,3 +866,371 @@ Import traces:
 [01:04:22.901] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
 [01:04:22.901] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
 [01:04:22.901] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/?to=dexter-nb7hmb color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/?to=dexter-nb7hmb","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764733913313}
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-client] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-ssr] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-client] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-ssr] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-client] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-ssr] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-client] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-ssr] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-client] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-ssr] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-client] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-ssr] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-client] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.011] Browser ERROR   ./VSCode/wedd-inv/components/invitation/event-section.tsx:5:1
+Export Rose doesn't exist in target module
+  3 | import { motion } from "framer-motion"
+  4 | import type { WeddingSettings } from "@/lib/types"
+> 5 | import { Calendar, Clock, MapPin, HeartHandshake, Rose } from "lucide-react"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | interface EventSectionProps {
+  8 |   settings: WeddingSettings
+
+The export Rose was not found in module [project]/VSCode/wedd-inv/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/lucide-react.js [app-ssr] (ecmascript).
+Did you mean to import Rows?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component Browser]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./VSCode/wedd-inv/components/invitation/event-section.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Client Component SSR]
+    ./VSCode/wedd-inv/components/wedding-invitation.tsx [Server Component]
+    ./VSCode/wedd-inv/app/page.tsx [Server Component]
+[01:06:09.828] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/admin. Falling back to browser navigation. {}
+[01:06:11.806] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:06:11.806] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin","route":"/admin"}
+[01:06:11.806] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"http://localhost:3000/admin","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764734022215}
