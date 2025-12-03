@@ -244,9 +244,9 @@ export function GalleryPanel({ gallery, onUpdate }: GalleryPanelProps) {
         </div>
       )}
 
-      {/* Gallery Grid - limit to 9 */}
-      <div className="grid grid-cols-3 gap-4">
-        {gallery.slice(0, 9).map((image) => (
+      {/* Gallery Grid - show all images in admin */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {gallery.map((image) => (
           <div key={image.id} className="group relative aspect-square rounded-xl overflow-hidden glass">
             <img
               src={image.image_url || "/placeholder.svg"}
