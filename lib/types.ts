@@ -8,9 +8,11 @@ export interface WeddingSettings {
   bride_mother: string
   wedding_date: string
   akad_time: string
+  akad_time_end: string
   akad_location: string
   akad_address: string
   reception_time: string
+  reception_time_end: string
   reception_location: string
   reception_address: string
   venue_map_url: string

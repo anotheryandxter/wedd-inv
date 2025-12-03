@@ -50,7 +50,7 @@ export function EventSection({ settings }: EventSectionProps) {
               </div>
               <div className="flex items-center justify-center gap-3 text-muted-foreground">
                 <Clock className="w-5 h-5 text-gold" />
-                <span>{settings.akad_time} WIB - Selesai</span>
+                <span>{settings.akad_time} - {settings.akad_time_end} WIB</span>
               </div>
               <div className="flex items-start justify-center gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
@@ -82,7 +82,7 @@ export function EventSection({ settings }: EventSectionProps) {
               </div>
               <div className="flex items-center justify-center gap-3 text-muted-foreground">
                 <Clock className="w-5 h-5 text-gold" />
-                <span>{settings.reception_time} WIB - Selesai</span>
+                <span>{settings.reception_time} - {settings.reception_time_end} WIB</span>
               </div>
               <div className="flex items-start justify-center gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />

@@ -485,7 +485,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="akad_time">Waktu Akad</Label>
+              <Label htmlFor="akad_time">Waktu Akad (Mulai)</Label>
               <Input
                 id="akad_time"
                 name="akad_time"
@@ -496,13 +496,35 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="reception_time">Waktu Resepsi</Label>
+              <Label htmlFor="akad_time_end">Waktu Akad (Selesai)</Label>
+              <Input
+                id="akad_time_end"
+                name="akad_time_end"
+                value={formData.akad_time_end || ""}
+                onChange={handleChange}
+                placeholder="10:00"
+                className="bg-white/50"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="reception_time">Waktu Resepsi (Mulai)</Label>
               <Input
                 id="reception_time"
                 name="reception_time"
                 value={formData.reception_time || ""}
                 onChange={handleChange}
                 placeholder="11:00"
+                className="bg-white/50"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="reception_time_end">Waktu Resepsi (Selesai)</Label>
+              <Input
+                id="reception_time_end"
+                name="reception_time_end"
+                value={formData.reception_time_end || ""}
+                onChange={handleChange}
+                placeholder="14:00"
                 className="bg-white/50"
               />
             </div>
