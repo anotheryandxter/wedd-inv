@@ -45,6 +45,25 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
       if (payload.venue_lng === "" || payload.venue_lng === undefined) payload.venue_lng = null
       else if (typeof payload.venue_lng === "string") payload.venue_lng = Number(payload.venue_lng)
 
+      // Normalize countdown_target_date (datetime-local input) to include seconds and GMT+7 offset
+      // Input from <input type="datetime-local"> is like "2025-12-04T08:00" (no timezone)
+      // We store as TIMESTAMPTZ in GMT+7 by appending ":00+07:00" so Postgres stores the intended instant.
+      if (payload.countdown_target_date === "" || payload.countdown_target_date === undefined) {
+        payload.countdown_target_date = null
+      } else if (typeof payload.countdown_target_date === "string") {
+        const v = payload.countdown_target_date.trim()
+        // If it already contains timezone offset or Z, leave it
+        if (!/[Zz]|[+\-]\d{2}:?\d{2}$/.test(v)) {
+          // If it's in the form YYYY-MM-DDTHH:MM, append seconds and +07:00
+          if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(v)) {
+            payload.countdown_target_date = v + ":00+07:00"
+          } else {
+            // otherwise pass through (backend should validate)
+            payload.countdown_target_date = v
+          }
+        }
+      }
+
       // Ensure venue_map_url is a full URL (if it's a Google Maps search URL we've set it earlier)
       if (payload.venue_map_url && typeof payload.venue_map_url !== 'string') payload.venue_map_url = String(payload.venue_map_url)
 
