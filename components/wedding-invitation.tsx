@@ -12,6 +12,7 @@ import { RSVPSection } from "@/components/invitation/rsvp-section"
 import { CommentsSection } from "@/components/invitation/comments-section"
 import { FooterSection } from "@/components/invitation/footer-section"
 import { MusicPlayer } from "@/components/invitation/music-player"
+import { NoGiftNotice } from "@/components/invitation/no-gift-notice"
 import type { WeddingSettings, GalleryItem, Comment, Guest } from "@/lib/types"
 
 interface WeddingInvitationProps {
@@ -49,6 +50,7 @@ export function WeddingInvitation({ settings, gallery, comments, guest }: Weddin
       {isOpened && (
         <>
           <MusicPlayer musicUrl={settings.music_url} />
+          <NoGiftNotice />
           <HeroSection settings={settings} />
           <QuoteSection settings={settings} />
           <CoupleSection settings={settings} />
