@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 
 interface CountdownSectionProps {
-  weddingDate: string
+  countdownDate: string
   backgroundImage?: string | null
 }
 
@@ -15,12 +15,12 @@ interface TimeLeft {
   seconds: number
 }
 
-export function CountdownSection({ weddingDate, backgroundImage }: CountdownSectionProps) {
+export function CountdownSection({ countdownDate, backgroundImage }: CountdownSectionProps) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = new Date(weddingDate).getTime() - new Date().getTime()
+      const difference = new Date(countdownDate).getTime() - new Date().getTime()
 
       if (difference > 0) {
         setTimeLeft({
@@ -35,7 +35,7 @@ export function CountdownSection({ weddingDate, backgroundImage }: CountdownSect
     calculateTimeLeft()
     const timer = setInterval(calculateTimeLeft, 1000)
     return () => clearInterval(timer)
-  }, [weddingDate])
+  }, [countdownDate])
 
   const timeBlocks = [
     { value: timeLeft.days, label: "Hari" },

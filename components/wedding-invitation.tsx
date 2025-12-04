@@ -54,7 +54,7 @@ export function WeddingInvitation({ settings, gallery, comments, guest }: Weddin
           <HeroSection settings={settings} />
           <QuoteSection settings={settings} />
           <CoupleSection settings={settings} />
-          <CountdownSection weddingDate={settings.wedding_date} backgroundImage={settings.background_image || undefined} />
+          <CountdownSection countdownDate={settings.countdown_target_date || settings.wedding_date} backgroundImage={settings.background_image || undefined} />
           <EventSection settings={settings} />
           <GallerySection images={gallery} />
           <RSVPSection guest={guest} />

@@ -7,6 +7,7 @@ export interface WeddingSettings {
   bride_father: string
   bride_mother: string
   wedding_date: string
+  countdown_target_date?: string // Target date for countdown (GMT+7)
   akad_time: string
   akad_time_end: string
   akad_location: string

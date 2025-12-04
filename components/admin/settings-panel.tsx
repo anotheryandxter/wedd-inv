@@ -485,6 +485,19 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                 className="bg-white/50"
               />
             </div>
+            <div className="space-y-2 md:col-span-2">
+              <Label htmlFor="countdown_target_date">Waktu Target Countdown (GMT+7)</Label>
+              <Input
+                id="countdown_target_date"
+                name="countdown_target_date"
+                type="datetime-local"
+                value={formData.countdown_target_date?.slice(0, 16) || ""}
+                onChange={handleChange}
+                placeholder="Kosongkan untuk menggunakan tanggal pernikahan"
+                className="bg-white/50"
+              />
+              <p className="text-xs text-muted-foreground">Atur waktu spesifik untuk countdown. Kosongkan jika ingin menggunakan tanggal pernikahan.</p>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="akad_time">Waktu Akad (Mulai)</Label>
               <Input
