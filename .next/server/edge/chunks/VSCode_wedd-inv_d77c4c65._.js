@@ -52,7 +52,7 @@ ${m}`}({domain:m.host,address:_,statement:g,uri:m.href,version:"1",chainId:b,non
 ║ For more information, visit:                                              ║
 ║ https://supabase.com/docs/guides/auth/server-side                         ║
 ╚════════════════════════════════════════════════════════════════════════════╝
-    `)}e.i(57664);var rp=e.i(51252);async function rg(e){let t=rp.NextResponse.next({request:e}),r="/admin/login"===e.nextUrl.pathname;if(!e.nextUrl.pathname.startsWith("/admin")||r)return t;try{let r=process.env.SUPABASE_URL,s=process.env.SUPABASE_ANON_KEY;if(!r||!s)return t;let i=function(e,t,r){if(!e||!t)throw Error(`Your project's URL and Key are required to create a Supabase client!
+    `)}e.i(88181);var rp=e.i(14845);async function rg(e){let t=rp.NextResponse.next({request:e}),r="/admin/login"===e.nextUrl.pathname;if(!e.nextUrl.pathname.startsWith("/admin")||r)return t;try{let r=process.env.SUPABASE_URL,s=process.env.SUPABASE_ANON_KEY;if(!r||!s)return t;let i=function(e,t,r){if(!e||!t)throw Error(`Your project's URL and Key are required to create a Supabase client!
 
 Check your Supabase project's API settings to find these values
 
