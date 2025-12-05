@@ -63,6 +63,17 @@ export function WeddingInvitation({ settings, gallery, comments, guest }: Weddin
             bgColor={settings.countdown_bg_color || undefined}
             bgBlur={settings.countdown_bg_blur ?? undefined}
             overlayColor={settings.countdown_overlay_color || undefined}
+            groomName={settings.groom_name}
+            brideName={settings.bride_name}
+            akadTime={settings.akad_time}
+            akadTimeEnd={settings.akad_time_end}
+            akadLocation={settings.akad_location}
+            akadAddress={settings.akad_address}
+            receptionTime={settings.reception_time}
+            receptionTimeEnd={settings.reception_time_end}
+            receptionLocation={settings.reception_location}
+            receptionAddress={settings.reception_address}
+            venueMapUrl={settings.venue_map_url}
           />
           <EventSection settings={settings} />
           <GallerySection 
