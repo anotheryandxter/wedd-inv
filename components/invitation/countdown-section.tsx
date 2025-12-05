@@ -212,7 +212,8 @@ export function CountdownSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-8 mb-8 relative z-50"
+          className="mt-8 relative"
+          style={{ paddingBottom: showCalendarMenu ? '200px' : '0px' }}
         >
           <button
             onClick={() => setShowCalendarMenu(!showCalendarMenu)}
