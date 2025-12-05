@@ -72,6 +72,12 @@ export function WeddingInvitation({ settings, gallery, comments, guest }: Weddin
           <RSVPSection 
             guest={guest}
             sectionTitle={settings.section_title_rsvp || undefined}
+            backgroundImage={settings.rsvp_bg_image || undefined}
+            bgMode={settings.rsvp_bg_mode || undefined}
+            bgColor={settings.rsvp_bg_color || undefined}
+            bgBlur={settings.rsvp_bg_blur ?? undefined}
+            overlayOpacity={settings.rsvp_bg_overlay ?? undefined}
+            overlayColor={settings.rsvp_overlay_color || undefined}
           />
           <CommentsSection 
             initialComments={comments} 

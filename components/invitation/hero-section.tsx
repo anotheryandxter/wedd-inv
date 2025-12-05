@@ -18,15 +18,17 @@ export function HeroSection({ settings }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: settings.hero_image ? `url('${settings.hero_image}')` : `url('/romantic-couple-wedding-photo-with-soft-lighting-e.jpg')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
-      </div>
+      {/* Background - only use hero_image from settings, no fallback to placeholder */}
+      {settings.hero_image && (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('${settings.hero_image}')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
+        </div>
+      )}
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 py-20 max-w-3xl mx-auto">

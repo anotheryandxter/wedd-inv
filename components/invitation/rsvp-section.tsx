@@ -9,14 +9,35 @@ import { updateRSVP } from "@/lib/actions"
 interface RSVPSectionProps {
   guest: Guest | null
   sectionTitle?: string | null
+  backgroundImage?: string | null
+  bgMode?: string | null
+  bgColor?: string | null
+  bgBlur?: number | null
+  overlayOpacity?: number | null
+  overlayColor?: string | null
 }
 
-export function RSVPSection({ guest, sectionTitle }: RSVPSectionProps) {
+export function RSVPSection({ 
+  guest, 
+  sectionTitle,
+  backgroundImage,
+  bgMode,
+  bgColor,
+  bgBlur,
+  overlayOpacity,
+  overlayColor
+}: RSVPSectionProps) {
   const [attendance, setAttendance] = useState<string>(guest?.attendance_status || "pending")
   const [guestCount, setGuestCount] = useState<number>(guest?.guest_count || 1)
   const [isPending, startTransition] = useTransition()
   const [isSubmitted, setIsSubmitted] = useState(false)
   const title = sectionTitle || "RSVP"
+  
+  const mode = bgMode || 'image'
+  const solidColor = bgColor || '#faf8f5'
+  const overlayValue = overlayOpacity !== null && overlayOpacity !== undefined ? overlayOpacity / 100 : 0.85
+  const blurValue = bgBlur || 0
+  const finalOverlayColor = overlayColor || '#faf8f5'
 
   const handleSubmit = async () => {
     if (!guest) return
@@ -31,14 +52,33 @@ export function RSVPSection({ guest, sectionTitle }: RSVPSectionProps) {
 
   return (
     <section className="py-20 px-6 relative overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/elegant-cream-gold-floral-pattern-subtle-backgroun.jpg')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-background/85" />
-      </div>
+      {mode === 'solid' ? (
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            backgroundColor: solidColor,
+            filter: blurValue > 0 ? `blur(${blurValue}px)` : 'none'
+          }} 
+        />
+      ) : backgroundImage ? (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('${backgroundImage}')`,
+            filter: blurValue > 0 ? `blur(${blurValue}px)` : 'none'
+          }}
+        />
+      ) : null}
+      
+      {(mode === 'solid' || backgroundImage) && (
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            backgroundColor: finalOverlayColor,
+            opacity: overlayValue 
+          }} 
+        />
+      )}
 
       <div className="relative z-10 max-w-xl mx-auto">
         <motion.div

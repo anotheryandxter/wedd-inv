@@ -14,14 +14,19 @@ export function FooterSection({ settings }: FooterSectionProps) {
   
   return (
     <footer className="py-16 px-6 relative overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/elegant-gold-cream-floral-pattern-wedding-footer.jpg')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-background/80" />
-      </div>
+      {/* Remove hardcoded background - use settings.background_image if needed */}
+      {settings.background_image && (
+        <>
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('${settings.background_image}')`,
+              opacity: settings.background_opacity ? settings.background_opacity / 100 : 1
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-background/80" />
+        </>
+      )}
 
       <div className="relative z-10 max-w-2xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
