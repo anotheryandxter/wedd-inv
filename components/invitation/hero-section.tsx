@@ -46,11 +46,25 @@ export function HeroSection({ settings }: HeroSectionProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mb-8"
+          className="mb-8 w-full"
         >
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-black font-medium mb-2 leading-tight break-words whitespace-normal">{settings.groom_name}</h1>
+          <h1 
+            className="font-serif text-black font-medium mb-2 leading-tight whitespace-nowrap overflow-hidden text-ellipsis px-2"
+            style={{
+              fontSize: `clamp(2rem, ${Math.min(120 / (settings.groom_name?.length || 10), 6)}vw, 5rem)`
+            }}
+          >
+            {settings.groom_name}
+          </h1>
           <p className="font-serif text-xl sm:text-2xl md:text-3xl text-gold my-4">&</p>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-black font-medium leading-tight break-words whitespace-normal">{settings.bride_name}</h1>
+          <h1 
+            className="font-serif text-black font-medium leading-tight whitespace-nowrap overflow-hidden text-ellipsis px-2"
+            style={{
+              fontSize: `clamp(2rem, ${Math.min(120 / (settings.bride_name?.length || 10), 6)}vw, 5rem)`
+            }}
+          >
+            {settings.bride_name}
+          </h1>
         </motion.div>
 
         <motion.div

@@ -87,11 +87,25 @@ export function SplashScreen({ groomName, brideName, guestName, onOpen, splashIm
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="mb-6"
+              className="mb-6 w-full"
             >
-              <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-gold-gradient font-medium leading-tight break-words whitespace-normal">{groomName}</h1>
+              <h1 
+                className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap overflow-hidden text-ellipsis px-2"
+                style={{
+                  fontSize: `clamp(1.5rem, ${Math.min(90 / (groomName?.length || 10), 4)}vw, 3.75rem)`
+                }}
+              >
+                {groomName}
+              </h1>
               <p className="font-serif text-lg sm:text-xl md:text-2xl text-gold my-2">&</p>
-              <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-gold-gradient font-medium leading-tight break-words whitespace-normal">{brideName}</h1>
+              <h1 
+                className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap overflow-hidden text-ellipsis px-2"
+                style={{
+                  fontSize: `clamp(1.5rem, ${Math.min(90 / (brideName?.length || 10), 4)}vw, 3.75rem)`
+                }}
+              >
+                {brideName}
+              </h1>
             </motion.div>
 
             {/* Divider */}

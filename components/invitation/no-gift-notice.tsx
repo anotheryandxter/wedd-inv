@@ -9,9 +9,9 @@ export function NoGiftNotice() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
-      className="fixed bottom-6 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 z-40 max-w-md sm:w-full"
+      className="fixed bottom-20 left-4 right-4 sm:bottom-6 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 z-30 max-w-md sm:w-full"
     >
-      <div className="glass rounded-2xl p-3 sm:p-4 backdrop-blur-md bg-white/30 border border-white/50 shadow-xl mr-20 sm:mr-0">
+      <div className="glass rounded-2xl p-3 sm:p-4 backdrop-blur-md bg-white/30 border border-white/50 shadow-xl">
         <div className="flex items-start gap-2 sm:gap-3">
           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
             <Gift className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />

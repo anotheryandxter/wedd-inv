@@ -212,15 +212,15 @@ export function CountdownSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-8 relative"
+          className="mt-8 mb-8 relative z-50"
         >
           <button
             onClick={() => setShowCalendarMenu(!showCalendarMenu)}
-            className="glass rounded-full px-6 py-3 flex items-center gap-2 mx-auto hover:bg-white/20 transition-all duration-300 group"
+            className="glass rounded-full px-4 py-2 sm:px-6 sm:py-3 flex items-center gap-2 mx-auto hover:bg-white/20 transition-all duration-300 group text-sm sm:text-base"
           >
-            <Calendar className="w-5 h-5 text-gold" />
-            <span className="text-foreground font-medium">Simpan ke Kalender</span>
-            <ChevronDown className={`w-4 h-4 text-gold transition-transform duration-300 ${showCalendarMenu ? 'rotate-180' : ''}`} />
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+            <span className="text-foreground font-medium whitespace-nowrap">Simpan ke Kalender</span>
+            <ChevronDown className={`w-3 h-3 sm:w-4 sm:h-4 text-gold transition-transform duration-300 ${showCalendarMenu ? 'rotate-180' : ''}`} />
           </button>
 
           {/* Calendar Options Menu */}
@@ -228,7 +228,7 @@ export function CountdownSection({
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute top-full mt-2 left-1/2 -translate-x-1/2 glass rounded-2xl p-2 min-w-[200px] shadow-xl z-20"
+              className="absolute top-full mt-2 left-1/2 -translate-x-1/2 glass rounded-2xl p-2 w-[90vw] max-w-[240px] shadow-xl z-[60]"
             >
               <button
                 onClick={() => handleAddToCalendar('google')}
