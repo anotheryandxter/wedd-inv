@@ -54,11 +54,26 @@ export function WeddingInvitation({ settings, gallery, comments, guest }: Weddin
           <HeroSection settings={settings} />
           <QuoteSection settings={settings} />
           <CoupleSection settings={settings} />
-          <CountdownSection countdownDate={settings.countdown_target_date || settings.wedding_date} backgroundImage={settings.background_image || undefined} />
+          <CountdownSection 
+            countdownDate={settings.countdown_target_date || settings.wedding_date} 
+            backgroundImage={settings.countdown_bg_image || settings.background_image || undefined}
+            sectionTitle={settings.section_title_countdown || undefined}
+            overlayOpacity={settings.countdown_bg_overlay ?? undefined}
+          />
           <EventSection settings={settings} />
-          <GallerySection images={gallery} />
-          <RSVPSection guest={guest} />
-          <CommentsSection initialComments={comments} guest={guest} />
+          <GallerySection 
+            images={gallery} 
+            sectionTitle={settings.section_title_gallery || undefined}
+          />
+          <RSVPSection 
+            guest={guest}
+            sectionTitle={settings.section_title_rsvp || undefined}
+          />
+          <CommentsSection 
+            initialComments={comments} 
+            guest={guest}
+            sectionTitle={settings.section_title_comments || undefined}
+          />
           <FooterSection settings={settings} />
         </>
       )}

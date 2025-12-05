@@ -10,15 +10,17 @@ import { submitComment, getComments } from "@/lib/actions"
 interface CommentsSectionProps {
   initialComments: Comment[]
   guest?: Guest | null
+  sectionTitle?: string | null
 }
 
-export function CommentsSection({ initialComments, guest }: CommentsSectionProps) {
+export function CommentsSection({ initialComments, guest, sectionTitle }: CommentsSectionProps) {
   const [comments, setComments] = useState<Comment[]>(initialComments)
   const [name, setName] = useState<string>(guest?.name ?? "")
   const [message, setMessage] = useState("")
   const [isPending, startTransition] = useTransition()
   const [isRefreshing, setIsRefreshing] = useState(false)
   const commentsContainerRef = useRef<HTMLDivElement>(null)
+  const title = sectionTitle || "Wishes & Comments"
 
   // If guest prop changes (e.g., when page loads with guest), ensure name is synced
   useEffect(() => {
@@ -71,8 +73,7 @@ export function CommentsSection({ initialComments, guest }: CommentsSectionProps
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm tracking-[0.2em] text-gold uppercase mb-2">Wishes</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground">Ucapan & Doa</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground">{title}</h2>
         </motion.div>
 
         {/* Comment Form */}

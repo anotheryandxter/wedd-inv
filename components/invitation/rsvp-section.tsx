@@ -8,13 +8,15 @@ import { updateRSVP } from "@/lib/actions"
 
 interface RSVPSectionProps {
   guest: Guest | null
+  sectionTitle?: string | null
 }
 
-export function RSVPSection({ guest }: RSVPSectionProps) {
+export function RSVPSection({ guest, sectionTitle }: RSVPSectionProps) {
   const [attendance, setAttendance] = useState<string>(guest?.attendance_status || "pending")
   const [guestCount, setGuestCount] = useState<number>(guest?.guest_count || 1)
   const [isPending, startTransition] = useTransition()
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const title = sectionTitle || "RSVP"
 
   const handleSubmit = async () => {
     if (!guest) return
@@ -45,8 +47,7 @@ export function RSVPSection({ guest }: RSVPSectionProps) {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm tracking-[0.2em] text-gold uppercase mb-2">RSVP</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground">Konfirmasi Kehadiran</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground">{title}</h2>
         </motion.div>
 
         <motion.div

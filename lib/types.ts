@@ -37,6 +37,37 @@ export interface WeddingSettings {
   whatsapp_template?: string
   site_name?: string
   favicon?: string
+  
+  // Customizable section titles
+  section_title_bismillah?: string
+  section_title_couple?: string
+  section_title_countdown?: string
+  section_title_event?: string
+  section_title_gallery?: string
+  section_title_rsvp?: string
+  section_title_comments?: string
+  
+  // Section backgrounds
+  countdown_bg_image?: string
+  countdown_bg_overlay?: number // 0-100
+  event_bg_image?: string
+  event_bg_overlay?: number
+  gallery_bg_image?: string
+  gallery_bg_overlay?: number
+  rsvp_bg_image?: string
+  rsvp_bg_overlay?: number
+  comments_bg_image?: string
+  comments_bg_overlay?: number
+  
+  // Closing message
+  closing_message?: string
+  
+  // Footer content
+  footer_copyright?: string
+  footer_social_instagram?: string
+  footer_social_facebook?: string
+  footer_social_twitter?: string
+  
   created_at: string
   updated_at: string
 }

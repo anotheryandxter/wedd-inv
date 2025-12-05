@@ -364,20 +364,8 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
-        {/* Tabbed Interface */}
-        <Tabs defaultValue="basic" className="w-full">
-          <TabsList className="grid w-full grid-cols-6 mb-6">
-            <TabsTrigger value="basic">Informasi</TabsTrigger>
-            <TabsTrigger value="event">Acara</TabsTrigger>
-            <TabsTrigger value="sections">Judul</TabsTrigger>
-            <TabsTrigger value="styling">Styling</TabsTrigger>
-            <TabsTrigger value="footer">Footer</TabsTrigger>
-            <TabsTrigger value="assets">Assets</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="basic" className="space-y-6">
-            {/* Couple Information */}
-            <div className="glass rounded-2xl p-6">
+        {/* Couple Information */}
+        <div className="glass rounded-2xl p-6">
           <h3 className="font-medium text-foreground mb-4">Informasi Mempelai</h3>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
@@ -504,9 +492,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
             </div>
           </div>
         </div>
-          </TabsContent>
 
-          <TabsContent value="event" className="space-y-6">
         {/* Event Information */}
         <div className="glass rounded-2xl p-6">
           <h3 className="font-medium text-foreground mb-4">Informasi Acara</h3>
@@ -679,21 +665,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
             </div>
           </div>
         </div>
-          </TabsContent>
 
-          <TabsContent value="sections">
-            <SectionSettingsTab settings={settings} formData={formData} handleChange={handleChange} />
-          </TabsContent>
-
-          <TabsContent value="styling">
-            <StylingSettingsTab settings={settings} formData={formData} handleChange={handleChange} />
-          </TabsContent>
-
-          <TabsContent value="footer">
-            <FooterSettingsTab settings={settings} formData={formData} handleChange={handleChange} />
-          </TabsContent>
-
-          <TabsContent value="assets" className="space-y-6">
         {/* Quote */}
         <div className="glass rounded-2xl p-6">
           <h3 className="font-medium text-foreground mb-4">Kutipan</h3>
@@ -1006,9 +978,6 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
             {message.text}
           </div>
         )}
-
-          </TabsContent>
-        </Tabs>
 
         {/* Submit - Use isPending */}
         <div className="flex justify-end">

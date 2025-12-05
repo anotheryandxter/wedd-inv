@@ -7,10 +7,12 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface GallerySectionProps {
   images: GalleryItem[]
+  sectionTitle?: string | null
 }
 
-export function GallerySection({ images }: GallerySectionProps) {
+export function GallerySection({ images, sectionTitle }: GallerySectionProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const title = sectionTitle || "Our Gallery"
   // shuffle and pick images for display on the invitation
   const displayedImages = useMemo(() => {
     const src = images && images.length > 0 ? images.slice() : []
@@ -51,8 +53,7 @@ export function GallerySection({ images }: GallerySectionProps) {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm tracking-[0.2em] text-gold uppercase mb-2">Our Gallery</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground">Galeri Foto</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground">{title}</h2>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

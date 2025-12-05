@@ -6,6 +6,8 @@ import { motion } from "framer-motion"
 interface CountdownSectionProps {
   countdownDate: string
   backgroundImage?: string | null
+  sectionTitle?: string | null
+  overlayOpacity?: number | null
 }
 
 interface TimeLeft {
@@ -15,8 +17,10 @@ interface TimeLeft {
   seconds: number
 }
 
-export function CountdownSection({ countdownDate, backgroundImage }: CountdownSectionProps) {
+export function CountdownSection({ countdownDate, backgroundImage, sectionTitle, overlayOpacity }: CountdownSectionProps) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  const title = sectionTitle || "Save The Date"
+  const overlayValue = overlayOpacity !== null && overlayOpacity !== undefined ? overlayOpacity / 100 : 0.8
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -54,7 +58,7 @@ export function CountdownSection({ countdownDate, backgroundImage }: CountdownSe
           backgroundImage: `url('${bgUrl}')`,
         }}
       >
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-background" style={{ opacity: overlayValue }} />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -64,8 +68,7 @@ export function CountdownSection({ countdownDate, backgroundImage }: CountdownSe
           viewport={{ once: true }}
           className="mb-10"
         >
-          <p className="text-sm tracking-[0.2em] text-gold uppercase mb-2">Save The Date</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground">Menghitung Hari</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground">{title}</h2>
         </motion.div>
 
         <motion.div

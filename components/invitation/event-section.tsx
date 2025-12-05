@@ -17,6 +17,7 @@ export function EventSection({ settings }: EventSectionProps) {
     month: "long",
     day: "numeric",
   })
+  const title = settings.section_title_event || "Wedding Event"
 
   return (
     <section className="py-20 px-6">
@@ -27,8 +28,7 @@ export function EventSection({ settings }: EventSectionProps) {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-sm tracking-[0.2em] text-gold uppercase mb-2">Wedding Event</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground">Acara Pernikahan</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground">{title}</h2>
         </motion.div>
 
         <div className="max-w-xl mx-auto">

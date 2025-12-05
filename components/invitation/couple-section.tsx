@@ -8,6 +8,7 @@ interface CoupleSectionProps {
 }
 
 export function CoupleSection({ settings }: CoupleSectionProps) {
+  const title = settings.section_title_couple || "The Happy Couple"
   
   return (
     <section className="py-20 px-6">
@@ -18,8 +19,7 @@ export function CoupleSection({ settings }: CoupleSectionProps) {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-xl md:text-2xl text-gold mb-2 font-[var(--font-amiri)]" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground">Mempelai</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground">{title}</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
