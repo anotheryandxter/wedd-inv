@@ -8,6 +8,10 @@ interface CountdownSectionProps {
   backgroundImage?: string | null
   sectionTitle?: string | null
   overlayOpacity?: number | null
+  bgMode?: string | null
+  bgColor?: string | null
+  bgBlur?: number | null
+  overlayColor?: string | null
 }
 
 interface TimeLeft {
@@ -17,10 +21,20 @@ interface TimeLeft {
   seconds: number
 }
 
-export function CountdownSection({ countdownDate, backgroundImage, sectionTitle, overlayOpacity }: CountdownSectionProps) {
+export function CountdownSection({ 
+  countdownDate, 
+  backgroundImage, 
+  sectionTitle, 
+  overlayOpacity,
+  bgMode,
+  bgColor,
+  bgBlur,
+  overlayColor
+}: CountdownSectionProps) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const title = sectionTitle || "Save The Date"
   const overlayValue = overlayOpacity !== null && overlayOpacity !== undefined ? overlayOpacity / 100 : 0.8
+  const blurValue = bgBlur || 0
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -49,17 +63,37 @@ export function CountdownSection({ countdownDate, backgroundImage, sectionTitle,
   ]
 
   const bgUrl = backgroundImage && backgroundImage.length > 0 ? backgroundImage : '/soft-floral-pattern-cream-gold-wedding-background.jpg'
+  const mode = bgMode || 'image'
+  const solidColor = bgColor || '#ffffff'
+  const finalOverlayColor = overlayColor || '#000000'
 
   return (
     <section className="py-20 px-6 relative overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage: `url('${bgUrl}')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-background" style={{ opacity: overlayValue }} />
-      </div>
+      {mode === 'solid' ? (
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            backgroundColor: solidColor,
+            filter: blurValue > 0 ? `blur(${blurValue}px)` : 'none'
+          }} 
+        />
+      ) : (
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: `url('${bgUrl}')`,
+            filter: blurValue > 0 ? `blur(${blurValue}px)` : 'none'
+          }}
+        />
+      )}
+      
+      <div 
+        className="absolute inset-0" 
+        style={{ 
+          backgroundColor: finalOverlayColor,
+          opacity: overlayValue 
+        }} 
+      />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div

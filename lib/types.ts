@@ -27,6 +27,7 @@ export interface WeddingSettings {
   groom_photo?: string
   bride_photo?: string
   background_image?: string
+  background_opacity?: number // 0-100 for main background pattern
   splash_image?: string
   splash_overlay_opacity?: number
   // Overlay mode: 'light' uses the soft cream gradient, 'dark' uses a darker overlay,
@@ -50,14 +51,38 @@ export interface WeddingSettings {
   // Section backgrounds
   countdown_bg_image?: string
   countdown_bg_overlay?: number // 0-100
+  countdown_bg_mode?: 'image' | 'solid' // Mode: image upload or solid color
+  countdown_bg_color?: string // Hex color for solid mode
+  countdown_bg_blur?: number // 0-20 blur radius
+  countdown_overlay_color?: string // Hex color for overlay
+  
   event_bg_image?: string
   event_bg_overlay?: number
+  event_bg_mode?: 'image' | 'solid'
+  event_bg_color?: string
+  event_bg_blur?: number
+  event_overlay_color?: string
+  
   gallery_bg_image?: string
   gallery_bg_overlay?: number
+  gallery_bg_mode?: 'image' | 'solid'
+  gallery_bg_color?: string
+  gallery_bg_blur?: number
+  gallery_overlay_color?: string
+  
   rsvp_bg_image?: string
   rsvp_bg_overlay?: number
+  rsvp_bg_mode?: 'image' | 'solid'
+  rsvp_bg_color?: string
+  rsvp_bg_blur?: number
+  rsvp_overlay_color?: string
+  
   comments_bg_image?: string
   comments_bg_overlay?: number
+  comments_bg_mode?: 'image' | 'solid'
+  comments_bg_color?: string
+  comments_bg_blur?: number
+  comments_overlay_color?: string
   
   // Closing message
   closing_message?: string

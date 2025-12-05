@@ -59,6 +59,10 @@ export function WeddingInvitation({ settings, gallery, comments, guest }: Weddin
             backgroundImage={settings.countdown_bg_image || settings.background_image || undefined}
             sectionTitle={settings.section_title_countdown || undefined}
             overlayOpacity={settings.countdown_bg_overlay ?? undefined}
+            bgMode={settings.countdown_bg_mode || undefined}
+            bgColor={settings.countdown_bg_color || undefined}
+            bgBlur={settings.countdown_bg_blur ?? undefined}
+            overlayColor={settings.countdown_overlay_color || undefined}
           />
           <EventSection settings={settings} />
           <GallerySection 

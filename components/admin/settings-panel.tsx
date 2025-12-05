@@ -686,7 +686,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
           </TabsContent>
 
           <TabsContent value="styling">
-            <StylingSettingsTab settings={settings} formData={formData} handleChange={handleChange} />
+            <StylingSettingsTab settings={settings} formData={formData} handleChange={handleChange} setFormData={setFormData} />
           </TabsContent>
 
           <TabsContent value="footer">
@@ -776,6 +776,22 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                         }
                       })
                     }}>Hapus</Button>
+                  </div>
+                  
+                  <div className="space-y-2 mt-4">
+                    <Label htmlFor="background_opacity">Background Opacity (0-100)</Label>
+                    <Input
+                      id="background_opacity"
+                      name="background_opacity"
+                      type="number"
+                      min="0"
+                      max="100"
+                      value={formData.background_opacity ?? settings?.background_opacity ?? 100}
+                      onChange={handleChange}
+                      placeholder="100"
+                      className="bg-white/50"
+                    />
+                    <p className="text-xs text-muted-foreground">Kontrol opacity untuk main background pattern (0 = transparan, 100 = penuh)</p>
                   </div>
                 </div>
 
