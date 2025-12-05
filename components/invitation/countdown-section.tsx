@@ -212,8 +212,7 @@ export function CountdownSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-8 relative"
-          style={{ paddingBottom: showCalendarMenu ? '200px' : '0px' }}
+          className="mt-8"
         >
           <button
             onClick={() => setShowCalendarMenu(!showCalendarMenu)}
@@ -223,22 +222,33 @@ export function CountdownSection({
             <span className="text-foreground font-medium whitespace-nowrap">Simpan ke Kalender</span>
             <ChevronDown className={`w-3 h-3 sm:w-4 sm:h-4 text-gold transition-transform duration-300 ${showCalendarMenu ? 'rotate-180' : ''}`} />
           </button>
+        </motion.div>
+      </div>
 
-          {/* Calendar Options Menu */}
-          {showCalendarMenu && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="absolute top-full mt-2 left-1/2 -translate-x-1/2 glass rounded-2xl p-2 w-[90vw] max-w-[240px] shadow-xl z-[60]"
-            >
+      {/* Calendar Options Menu - Floating Modal */}
+      {showCalendarMenu && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowCalendarMenu(false)}
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[100]"
+          />
+          
+          {/* Floating Menu */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass rounded-2xl p-2 w-[90vw] max-w-[280px] shadow-2xl z-[101]"
+          >
               <button
                 onClick={() => handleAddToCalendar('google')}
                 className="w-full text-left px-4 py-3 rounded-xl hover:bg-white/20 transition-colors text-foreground flex items-center gap-3"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.5 3h-15A2.5 2.5 0 0 0 2 5.5v13A2.5 2.5 0 0 0 4.5 21h15a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 19.5 3zm-15 1.5h15a1 1 0 0 1 1 1V7h-17V5.5a1 1 0 0 1 1-1zM4.5 19.5a1 1 0 0 1-1-1v-10h17v10a1 1 0 0 1-1 1h-15z"/>
-                  <path d="M9 14h6v1.5H9z"/>
-                </svg>
+                <Calendar className="w-5 h-5 text-gold" />
                 <span>Google Calendar</span>
               </button>
               
@@ -246,9 +256,7 @@ export function CountdownSection({
                 onClick={() => handleAddToCalendar('apple')}
                 className="w-full text-left px-4 py-3 rounded-xl hover:bg-white/20 transition-colors text-foreground flex items-center gap-3"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                </svg>
+                <Calendar className="w-5 h-5 text-gold" />
                 <span>Apple Calendar</span>
               </button>
               
@@ -256,16 +264,12 @@ export function CountdownSection({
                 onClick={() => handleAddToCalendar('outlook')}
                 className="w-full text-left px-4 py-3 rounded-xl hover:bg-white/20 transition-colors text-foreground flex items-center gap-3"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7 22h10c1.1 0 2-.9 2-2V8l-6-6H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2zm5-18l5 5h-5V4z"/>
-                  <path d="M9 14h6v1.5H9z"/>
-                </svg>
+                <Calendar className="w-5 h-5 text-gold" />
                 <span>Outlook Calendar</span>
               </button>
-            </motion.div>
-          )}
-        </motion.div>
-      </div>
+          </motion.div>
+        </>
+      )}
     </section>
   )
 }
