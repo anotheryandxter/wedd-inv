@@ -261,7 +261,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
     })
   }
 
-  const handleSaveAssetUrl = async (field: 'hero_image' | 'background_image' | 'splash_image' | 'music_url' | 'whatsapp_template' | 'favicon' | 'site_name' | 'groom_photo' | 'bride_photo', value: string) => {
+  const handleSaveAssetUrl = async (field: 'hero_image' | 'background_image' | 'splash_image' | 'og_image' | 'music_url' | 'whatsapp_template' | 'favicon' | 'site_name' | 'groom_photo' | 'bride_photo', value: string) => {
     if (!settings?.id) return
     setAssetMessage(null)
     startTransition(async () => {
@@ -1004,6 +1004,94 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                         })
                       }}>Simpan Overlay</Button>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Open Graph Preview Image */}
+              <div className="glass rounded-2xl p-6 mt-6">
+                <h3 className="font-medium text-foreground mb-4">Gambar Preview Link (Open Graph)</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Gambar ini akan muncul saat link undangan dibagikan di WhatsApp, Facebook, Twitter, dll. 
+                  Ukuran optimal: 1200×630 piksel. Jika tidak diatur, akan menggunakan Splash Image sebagai fallback.
+                </p>
+                
+                <div className="space-y-2">
+                  <Label>Gambar Preview (1200×630 px)</Label>
+                  {(formData.og_image as string) || settings?.og_image ? (
+                    <img 
+                      src={(formData.og_image as string) || settings?.og_image || ""} 
+                      alt="OG Preview" 
+                      className="w-full max-w-2xl h-auto object-cover rounded-md mb-2 border-2 border-gold/20" 
+                    />
+                  ) : (
+                    <div className="w-full max-w-2xl h-64 bg-muted rounded-md flex flex-col items-center justify-center text-sm gap-2">
+                      <span>Belum ada gambar preview</span>
+                      <span className="text-xs text-muted-foreground">Akan menggunakan Splash Image jika tidak diatur</span>
+                    </div>
+                  )}
+                  
+                  <input 
+                    type="file" 
+                    accept="image/*" 
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0]
+                      if (!file || !settings?.id) return
+                      setAssetMessage(null)
+                      
+                      const fd = new FormData()
+                      fd.append('file', file)
+                      fd.append('filename', file.name)
+                      fd.append('folder', 'og')
+                      
+                      const res = await fetch('/api/upload', { method: 'POST', body: fd })
+                      const json = await res.json()
+                      
+                      if (!json.success) {
+                        return setAssetMessage({ type: 'error', text: json.error || 'Gagal mengunggah gambar OG' })
+                      }
+                      
+                      const url = json.publicUrl || json.publicURL || json.public_url
+                      if (url) {
+                        setFormData((p) => ({ ...p, og_image: url }))
+                        handleSaveAssetUrl('og_image', url)
+                      }
+                    }} 
+                  />
+
+                  <div className="flex gap-2 mt-2">
+                    <Input
+                      placeholder="Atau masukkan URL gambar preview"
+                      value={(formData.og_image as string) || settings?.og_image || ""}
+                      onChange={(e) => setFormData((p) => ({ ...p, og_image: e.target.value }))}
+                      className="bg-white/50"
+                    />
+                    <Button 
+                      size="sm" 
+                      onClick={() => handleSaveAssetUrl('og_image', (formData.og_image as string) || settings?.og_image || '')}
+                    >
+                      Simpan
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      variant="ghost" 
+                      onClick={async () => {
+                        if (!settings?.id) return
+                        setAssetMessage(null)
+                        startTransition(async () => {
+                          const result = await updateWeddingSettings(settings.id, { og_image: null })
+                          if (result.success && result.data) {
+                            setAssetMessage({ type: 'success', text: 'Gambar preview dihapus (akan gunakan fallback)' })
+                            setFormData((p) => ({ ...p, og_image: null }))
+                            onUpdate(result.data)
+                          } else {
+                            setAssetMessage({ type: 'error', text: result.error || 'Gagal menghapus gambar preview' })
+                          }
+                        })
+                      }}
+                    >
+                      Hapus
+                    </Button>
                   </div>
                 </div>
               </div>

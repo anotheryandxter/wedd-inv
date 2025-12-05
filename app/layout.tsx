@@ -81,8 +81,8 @@ export async function generateMetadata(): Promise<Metadata> {
         })()
       : undefined
 
-    // Use splash_image for social share preview, fallback to hero_image
-    const ogImage = settings?.splash_image || settings?.hero_image || null
+    // Use og_image first, then splash_image, then hero_image as fallback
+    const ogImage = settings?.og_image || settings?.splash_image || settings?.hero_image || null
     const ogImageAbsolute = ogImage && !/^https?:\/\//i.test(ogImage) && baseUrl
       ? `${baseUrl}/${String(ogImage).replace(/^\/*/, "")}`
       : ogImage
