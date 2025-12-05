@@ -87,25 +87,31 @@ export function SplashScreen({ groomName, brideName, guestName, onOpen, splashIm
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="mb-6 w-full px-4"
+              className="mb-6 w-full px-2"
             >
-              <h1 
-                className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap px-2"
-                style={{
-                  fontSize: `clamp(1.25rem, calc(${(groomName?.length || 10) > 20 ? '70' : (groomName?.length || 10) > 15 ? '80' : '90'}vw / ${groomName?.length || 10}), 4rem)`
-                }}
-              >
-                {groomName}
-              </h1>
+              <div className="relative w-full flex justify-center">
+                <h1 
+                  className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origin-center"
+                  style={{
+                    fontSize: '4rem',
+                    transform: `scale(${Math.min(1, (typeof window !== 'undefined' ? window.innerWidth * 0.85 : 300) / ((groomName?.length || 10) * 32))})`
+                  }}
+                >
+                  {groomName}
+                </h1>
+              </div>
               <p className="font-serif text-lg sm:text-xl md:text-2xl text-gold my-2">&</p>
-              <h1 
-                className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap px-2"
-                style={{
-                  fontSize: `clamp(1.25rem, calc(${(brideName?.length || 10) > 20 ? '70' : (brideName?.length || 10) > 15 ? '80' : '90'}vw / ${brideName?.length || 10}), 4rem)`
-                }}
-              >
-                {brideName}
-              </h1>
+              <div className="relative w-full flex justify-center">
+                <h1 
+                  className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origin-center"
+                  style={{
+                    fontSize: '4rem',
+                    transform: `scale(${Math.min(1, (typeof window !== 'undefined' ? window.innerWidth * 0.85 : 300) / ((brideName?.length || 10) * 32))})`
+                  }}
+                >
+                  {brideName}
+                </h1>
+              </div>
             </motion.div>
 
             {/* Divider */}

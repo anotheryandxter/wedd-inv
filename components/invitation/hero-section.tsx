@@ -46,25 +46,31 @@ export function HeroSection({ settings }: HeroSectionProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mb-8 w-full px-4"
+          className="mb-8 w-full px-2"
         >
-          <h1 
-            className="font-serif text-black font-medium mb-2 leading-tight whitespace-nowrap px-2"
-            style={{
-              fontSize: `clamp(1.5rem, calc(${(settings.groom_name?.length || 10) > 20 ? '85' : (settings.groom_name?.length || 10) > 15 ? '95' : '105'}vw / ${settings.groom_name?.length || 10}), 5rem)`
-            }}
-          >
-            {settings.groom_name}
-          </h1>
+          <div className="relative w-full flex justify-center">
+            <h1 
+              className="font-serif text-black font-medium mb-2 leading-tight whitespace-nowrap origin-center"
+              style={{
+                fontSize: '5rem',
+                transform: `scale(${Math.min(1, (typeof window !== 'undefined' ? window.innerWidth * 0.85 : 300) / ((settings.groom_name?.length || 10) * 40))})`
+              }}
+            >
+              {settings.groom_name}
+            </h1>
+          </div>
           <p className="font-serif text-xl sm:text-2xl md:text-3xl text-gold my-4">&</p>
-          <h1 
-            className="font-serif text-black font-medium leading-tight whitespace-nowrap px-2"
-            style={{
-              fontSize: `clamp(1.5rem, calc(${(settings.bride_name?.length || 10) > 20 ? '85' : (settings.bride_name?.length || 10) > 15 ? '95' : '105'}vw / ${settings.bride_name?.length || 10}), 5rem)`
-            }}
-          >
-            {settings.bride_name}
-          </h1>
+          <div className="relative w-full flex justify-center">
+            <h1 
+              className="font-serif text-black font-medium leading-tight whitespace-nowrap origin-center"
+              style={{
+                fontSize: '5rem',
+                transform: `scale(${Math.min(1, (typeof window !== 'undefined' ? window.innerWidth * 0.85 : 300) / ((settings.bride_name?.length || 10) * 40))})`
+              }}
+            >
+              {settings.bride_name}
+            </h1>
+          </div>
         </motion.div>
 
         <motion.div
