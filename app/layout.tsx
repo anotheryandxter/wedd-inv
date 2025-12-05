@@ -54,7 +54,10 @@ export async function generateMetadata(): Promise<Metadata> {
     const desc = settings?.quote || "Kami mengundang Anda untuk hadir di hari bahagia kami"
     let favicon = settings?.favicon || null
     // Ensure favicon is an absolute URL. If admin supplied a relative path, prefix with site URL.
-    const baseUrlRaw = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || ""
+    // Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL (active deployment) > SITE_URL
+    const baseUrlRaw = process.env.NEXT_PUBLIC_SITE_URL || 
+                       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
+                       process.env.SITE_URL || ""
     const baseUrl = String(baseUrlRaw).replace(/\/$/, "")
     if (favicon && !/^https?:\/\//i.test(favicon) && baseUrl) {
       // remove leading slashes
