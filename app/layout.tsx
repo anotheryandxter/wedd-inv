@@ -98,20 +98,22 @@ export async function generateMetadata(): Promise<Metadata> {
         images: [
           {
             url: ogImageAbsolute,
-            width: 128,
-            height: 128,
+            width: 1200,
+            height: 630,
             alt: siteTitle,
           },
         ],
         type: 'website',
         siteName: siteTitle,
+        url: baseUrl || undefined,
       } : undefined,
       twitter: ogImageAbsolute ? {
-        card: 'summary',
+        card: 'summary_large_image',
         title: siteTitle,
         description: desc,
         images: [ogImageAbsolute],
       } : undefined,
+      metadataBase: baseUrl ? new URL(baseUrl) : undefined,
     }
     } catch (err) {
     return defaultMetadata
