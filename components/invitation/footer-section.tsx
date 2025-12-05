@@ -30,18 +30,11 @@ export function FooterSection({ settings }: FooterSectionProps) {
 
       <div className="relative z-10 max-w-2xl mx-auto text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <p className="text-muted-foreground mb-6 leading-relaxed whitespace-pre-line">
-            {closingMessage}
-          </p>
-
-          <p className="text-muted-foreground mb-8">Atas kehadiran dan doa restunya kami ucapkan terima kasih.</p>
-
-          <div className="mb-8">
-            <p className="text-sm text-gold mb-2">Wassalamualaikum Wr. Wb.</p>
-            <p className="font-serif text-2xl text-gold-gradient">
-              {settings.groom_name} & {settings.bride_name}
+          {closingMessage && (
+            <p className="text-muted-foreground mb-8 leading-relaxed whitespace-pre-line">
+              {closingMessage}
             </p>
-          </div>
+          )}
 
           {/* Social Links */}
           {(settings.footer_social_instagram || settings.footer_social_facebook || settings.footer_social_twitter) && (

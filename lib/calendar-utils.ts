@@ -77,18 +77,28 @@ export function generateICSFile(data: CalendarEventData): string {
 }
 
 /**
- * Download ICS file
+ * Download ICS file or trigger native calendar app
  */
 export function downloadICSFile(data: CalendarEventData, filename: string = 'wedding-event.ics'): void {
   const icsContent = generateICSFile(data)
   const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
+  
+  // Create data URL for iOS/Android to trigger native calendar
+  const dataUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`
+  
   const link = document.createElement('a')
-  link.href = URL.createObjectURL(blob)
+  link.href = dataUrl
   link.download = filename
+  
+  // For iOS/Android - try to open in native calendar app
+  const platform = detectPlatform()
+  if (platform === 'ios' || platform === 'android') {
+    link.target = '_blank'
+  }
+  
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
-  URL.revokeObjectURL(link.href)
 }
 
 /**

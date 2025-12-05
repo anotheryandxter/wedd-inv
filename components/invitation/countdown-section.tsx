@@ -130,15 +130,35 @@ export function CountdownSection({
       url: invitationUrl,
     }
 
+    const platform = typeof window !== 'undefined' ? window.navigator.userAgent.toLowerCase() : ''
+    const isAndroid = /android/.test(platform)
+    const isIOS = /iphone|ipad|ipod/.test(platform)
+    
     switch (type) {
       case 'google':
-        window.open(generateGoogleCalendarUrl(calendarData), '_blank')
+        if (isAndroid) {
+          // Android: Try native Google Calendar intent first
+          const intentUrl = generateGoogleCalendarUrl(calendarData).replace('https://calendar.google.com/calendar/render', 'content://com.android.calendar/time')
+          window.location.href = intentUrl
+          // Fallback to web if intent fails
+          setTimeout(() => {
+            window.open(generateGoogleCalendarUrl(calendarData), '_blank')
+          }, 500)
+        } else {
+          window.open(generateGoogleCalendarUrl(calendarData), '_blank')
+        }
         break
       case 'apple':
+        // iOS/Mac: Download ICS triggers native Calendar app
         downloadICSFile(calendarData, 'wedding-invitation.ics')
         break
       case 'outlook':
-        window.open(generateOutlookUrl(calendarData), '_blank')
+        if (isAndroid || isIOS) {
+          // Mobile: Download ICS for native calendar
+          downloadICSFile(calendarData, 'wedding-invitation.ics')
+        } else {
+          window.open(generateOutlookUrl(calendarData), '_blank')
+        }
         break
     }
     

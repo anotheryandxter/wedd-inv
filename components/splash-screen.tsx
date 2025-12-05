@@ -89,29 +89,37 @@ export function SplashScreen({ groomName, brideName, guestName, onOpen, splashIm
               transition={{ delay: 0.7, duration: 0.6 }}
               className="mb-6 w-full px-2"
             >
-              <div className="relative w-full flex justify-center">
-                <h1 
-                  className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origin-center"
-                  style={{
-                    fontSize: '4rem',
-                    transform: `scale(${Math.min(1, (typeof window !== 'undefined' ? window.innerWidth * 0.85 : 300) / ((groomName?.length || 10) * 32))})`
-                  }}
-                >
-                  {groomName}
-                </h1>
-              </div>
-              <p className="font-serif text-lg sm:text-xl md:text-2xl text-gold my-2">&</p>
-              <div className="relative w-full flex justify-center">
-                <h1 
-                  className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origin-center"
-                  style={{
-                    fontSize: '4rem',
-                    transform: `scale(${Math.min(1, (typeof window !== 'undefined' ? window.innerWidth * 0.85 : 300) / ((brideName?.length || 10) * 32))})`
-                  }}
-                >
-                  {brideName}
-                </h1>
-              </div>
+              {(() => {
+                const longestNameLength = Math.max(groomName?.length || 10, brideName?.length || 10)
+                const baseScale = Math.min(1, (typeof window !== 'undefined' ? window.innerWidth * 0.85 : 300) / (longestNameLength * 32))
+                return (
+                  <>
+                    <div className="relative w-full flex justify-center">
+                      <h1 
+                        className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origin-center"
+                        style={{
+                          fontSize: '4rem',
+                          transform: `scale(${baseScale})`
+                        }}
+                      >
+                        {groomName}
+                      </h1>
+                    </div>
+                    <p className="font-serif text-lg sm:text-xl md:text-2xl text-gold my-2">&</p>
+                    <div className="relative w-full flex justify-center">
+                      <h1 
+                        className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origin-center"
+                        style={{
+                          fontSize: '4rem',
+                          transform: `scale(${baseScale})`
+                        }}
+                      >
+                        {brideName}
+                      </h1>
+                    </div>
+                    </>
+                  )
+                })()}
             </motion.div>
 
             {/* Divider */}
