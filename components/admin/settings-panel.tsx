@@ -699,15 +699,190 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
           <h3 className="font-medium text-foreground mb-4">Kutipan</h3>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="quote">Kutipan</Label>
+              <div className="flex items-center justify-between mb-2">
+                <Label htmlFor="quote">Kutipan</Label>
+                <span className="text-xs text-muted-foreground">Gunakan HTML untuk formatting</span>
+              </div>
+              
+              {/* HTML Formatting Toolbar */}
+              <div className="flex flex-wrap gap-2 p-2 glass rounded-lg mb-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const end = textarea.selectionEnd
+                    const text = textarea.value
+                    const selectedText = text.substring(start, end) || 'teks'
+                    const newText = text.substring(0, start) + `<b>${selectedText}</b>` + text.substring(end)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-white/50 hover:bg-white/70 rounded text-sm font-bold transition-colors"
+                  title="Bold"
+                >
+                  <b>B</b>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const end = textarea.selectionEnd
+                    const text = textarea.value
+                    const selectedText = text.substring(start, end) || 'teks'
+                    const newText = text.substring(0, start) + `<i>${selectedText}</i>` + text.substring(end)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-white/50 hover:bg-white/70 rounded text-sm italic transition-colors"
+                  title="Italic"
+                >
+                  <i>I</i>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const end = textarea.selectionEnd
+                    const text = textarea.value
+                    const selectedText = text.substring(start, end) || 'teks'
+                    const newText = text.substring(0, start) + `<u>${selectedText}</u>` + text.substring(end)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-white/50 hover:bg-white/70 rounded text-sm underline transition-colors"
+                  title="Underline"
+                >
+                  U
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const end = textarea.selectionEnd
+                    const text = textarea.value
+                    const selectedText = text.substring(start, end) || 'teks'
+                    const newText = text.substring(0, start) + `<strong>${selectedText}</strong>` + text.substring(end)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-white/50 hover:bg-white/70 rounded text-sm font-extrabold transition-colors"
+                  title="Strong"
+                >
+                  Strong
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const end = textarea.selectionEnd
+                    const text = textarea.value
+                    const selectedText = text.substring(start, end) || 'teks'
+                    const newText = text.substring(0, start) + `<em>${selectedText}</em>` + text.substring(end)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-white/50 hover:bg-white/70 rounded text-sm italic transition-colors"
+                  title="Emphasis"
+                >
+                  Emphasis
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const text = textarea.value
+                    const newText = text.substring(0, start) + '<br>' + text.substring(start)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-white/50 hover:bg-white/70 rounded text-sm transition-colors"
+                  title="Line Break"
+                >
+                  &lt;br&gt;
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const end = textarea.selectionEnd
+                    const text = textarea.value
+                    const selectedText = text.substring(start, end) || 'teks'
+                    const newText = text.substring(0, start) + `<mark>${selectedText}</mark>` + text.substring(end)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-yellow-200 hover:bg-yellow-300 rounded text-sm transition-colors"
+                  title="Highlight"
+                >
+                  Highlight
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const textarea = document.getElementById('quote') as HTMLTextAreaElement
+                    if (!textarea) return
+                    const start = textarea.selectionStart
+                    const end = textarea.selectionEnd
+                    const text = textarea.value
+                    const selectedText = text.substring(start, end) || 'teks'
+                    const newText = text.substring(0, start) + `<span style="color: #D4AF37;">${selectedText}</span>` + text.substring(end)
+                    setFormData((p) => ({ ...p, quote: newText }))
+                    setTimeout(() => textarea.focus(), 0)
+                  }}
+                  className="px-3 py-1 bg-white/50 hover:bg-white/70 rounded text-sm transition-colors"
+                  title="Gold Color"
+                  style={{ color: '#D4AF37' }}
+                >
+                  Gold
+                </button>
+              </div>
+
               <Textarea
                 id="quote"
                 name="quote"
                 value={formData.quote || ""}
                 onChange={handleChange}
-                rows={3}
-                className="bg-white/50"
+                rows={5}
+                className="bg-white/50 font-mono text-sm"
+                placeholder="Ketik kutipan di sini atau gunakan toolbar di atas untuk formatting..."
               />
+              
+              {/* Preview */}
+              {formData.quote && (
+                <div className="mt-3 p-4 glass rounded-lg">
+                  <div className="text-xs text-muted-foreground mb-2">Preview:</div>
+                  <div 
+                    className="text-foreground text-center font-serif"
+                    dangerouslySetInnerHTML={{ __html: formData.quote as string || '' }}
+                  />
+                </div>
+              )}
+
+              <div className="text-xs text-muted-foreground space-y-1">
+                <p><strong>Tag HTML yang didukung:</strong></p>
+                <ul className="list-disc list-inside pl-2">
+                  <li><code>&lt;b&gt;</code> atau <code>&lt;strong&gt;</code> - <b>Bold/Tebal</b></li>
+                  <li><code>&lt;i&gt;</code> atau <code>&lt;em&gt;</code> - <i>Italic/Miring</i></li>
+                  <li><code>&lt;u&gt;</code> - <u>Underline/Garis bawah</u></li>
+                  <li><code>&lt;mark&gt;</code> - <mark>Highlight</mark></li>
+                  <li><code>&lt;br&gt;</code> - Line break/Baris baru</li>
+                  <li><code>&lt;span style="color: #hex;"&gt;</code> - Warna custom</li>
+                </ul>
+              </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="quote_source">Sumber Kutipan</Label>
