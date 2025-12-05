@@ -109,23 +109,21 @@ export function CountdownSection({
       date.setHours(hours, minutes, 0, 0)
       return date
     }
-
-    const akadStartDate = parseTime(akadTime)
-    const akadEndDate = parseTime(akadTimeEnd) || new Date(akadStartDate.getTime() + 2 * 60 * 60 * 1000) // 2 hours default
     
+    // Only use reception time for calendar
     const receptionStartDate = parseTime(receptionTime)
     const receptionEndDate = parseTime(receptionTimeEnd) || new Date(receptionStartDate.getTime() + 4 * 60 * 60 * 1000) // 4 hours default
 
     const eventTitle = `Pernikahan ${groomName || ''} & ${brideName || ''}`
-    const eventDescription = `Kami mengundang Anda untuk hadir di pernikahan kami.\n\nAkad Nikah: ${akadTime || ''} - ${akadTimeEnd || ''}\nLokasi: ${akadLocation || ''}\n\nResepsi: ${receptionTime || ''} - ${receptionTimeEnd || ''}\nLokasi: ${receptionLocation || ''}`
-    const eventLocation = `${akadLocation || receptionLocation || ''}, ${akadAddress || receptionAddress || ''}`
+    const eventDescription = `Kami mengundang Anda untuk hadir di resepsi pernikahan kami.\n\nWaktu: ${receptionTime || ''} - ${receptionTimeEnd || ''}\nLokasi: ${receptionLocation || ''}`
+    const eventLocation = `${receptionLocation || ''}, ${receptionAddress || ''}`
     const invitationUrl = typeof window !== 'undefined' ? window.location.href : ''
 
     const calendarData = {
       title: eventTitle,
       description: eventDescription,
       location: eventLocation,
-      startDate: akadStartDate,
+      startDate: receptionStartDate,
       endDate: receptionEndDate,
       url: invitationUrl,
     }
