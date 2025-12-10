@@ -24,6 +24,7 @@ export interface WeddingSettings {
   quote_source: string
   hero_image: string
   music_url?: string
+  hint_box_text?: string // Custom text for floating hint box
   groom_photo?: string
   bride_photo?: string
   background_image?: string

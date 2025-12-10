@@ -6,9 +6,10 @@ import { Music, Play, Gift } from "lucide-react"
 
 interface MusicPlayerProps {
   musicUrl?: string | null
+  hintBoxText?: string | null
 }
 
-export function MusicPlayer({ musicUrl }: MusicPlayerProps) {
+export function MusicPlayer({ musicUrl, hintBoxText }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
@@ -60,7 +61,7 @@ export function MusicPlayer({ musicUrl }: MusicPlayerProps) {
             </div>
             <div className="flex-1">
               <p className="text-sm text-foreground/90 leading-relaxed mb-3">
-                Dengan segala kerendahan hati, kami tidak menerima kado saat acara. Terimakasih ❤️
+                {hintBoxText || "Dengan segala kerendahan hati, kami tidak menerima kado saat acara. Terimakasih ❤️"}
               </p>
               
               {/* Music Control Button Inside Hint Box */}

@@ -48,7 +48,7 @@ export function WeddingInvitation({ settings, gallery, comments, guest }: Weddin
 
       {isOpened && (
         <>
-          <MusicPlayer musicUrl={settings.music_url} />
+          <MusicPlayer musicUrl={settings.music_url} hintBoxText={settings.hint_box_text} />
           <HeroSection settings={settings} />
           <QuoteSection settings={settings} />
           <CoupleSection settings={settings} />

@@ -261,12 +261,12 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
     })
   }
 
-  const handleSaveAssetUrl = async (field: 'hero_image' | 'background_image' | 'splash_image' | 'og_image' | 'music_url' | 'whatsapp_template' | 'favicon' | 'site_name' | 'groom_photo' | 'bride_photo', value: string) => {
+  const handleSaveAssetUrl = async (field: 'hero_image' | 'background_image' | 'splash_image' | 'og_image' | 'music_url' | 'whatsapp_template' | 'hint_box_text' | 'favicon' | 'site_name' | 'groom_photo' | 'bride_photo', value: string) => {
     if (!settings?.id) return
     setAssetMessage(null)
     startTransition(async () => {
-      // Avoid overwriting existing value with an empty string
-      if (!value || value.trim() === '') {
+      // Avoid overwriting existing value with an empty string (except for hint_box_text which can be empty)
+      if (field !== 'hint_box_text' && (!value || value.trim() === '')) {
         setAssetMessage({ type: 'error', text: 'URL kosong — unggah file terlebih dahulu atau isi URL.' })
         return
       }
@@ -997,6 +997,27 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                   {assetMessage.text}
                 </div>
               )}
+
+              <div className="mt-4">
+                <Label>Teks Hint Box (Gift Notice)</Label>
+                <Textarea
+                  placeholder="Teks yang ditampilkan di floating hint box. Contoh: Dengan segala kerendahan hati, kami tidak menerima kado saat acara. Terimakasih ❤️"
+                  value={(formData.hint_box_text as string) || settings?.hint_box_text || ""}
+                  onChange={(e) => setFormData((p) => ({ ...p, hint_box_text: e.target.value }))}
+                  rows={3}
+                  className="bg-white/50"
+                />
+                <p className="text-sm text-muted-foreground mt-2">
+                  Customize pesan yang muncul di floating box (kanan bawah). Kosongkan untuk menggunakan teks default.
+                </p>
+                <Button 
+                  size="sm" 
+                  className="mt-2"
+                  onClick={() => handleSaveAssetUrl("hint_box_text", (formData.hint_box_text as string) || settings?.hint_box_text || "")}
+                >
+                  Simpan Teks Hint Box
+                </Button>
+              </div>
 
               <div className="mt-4">
                 <Label>Template Pesan WhatsApp</Label>
