@@ -92,34 +92,34 @@ export async function generateMetadata(): Promise<Metadata> {
       ? `${baseUrl}/${String(explicitOg).replace(/^\/*/, "")}`
       : explicitOg
     const generatedOgUrl = baseUrl ? `${baseUrl}/api/og` : null
-    const finalOgImage = ogImageAbsolute || generatedOgUrl || null
+    const finalOgImage = ogImageAbsolute || generatedOgUrl
 
     return {
       title: siteTitle,
       description: desc,
       icons,
       generator: "v0.app",
-      openGraph: finalOgImage ? {
+      openGraph: {
         title: siteTitle,
         description: desc,
-        images: [
+        images: finalOgImage ? [
           {
             url: finalOgImage,
             width: 1200,
             height: 630,
             alt: siteTitle,
           },
-        ],
+        ] : [],
         type: 'website',
         siteName: siteTitle,
         url: baseUrl || undefined,
-      } : undefined,
-      twitter: finalOgImage ? {
+      },
+      twitter: {
         card: 'summary_large_image',
         title: siteTitle,
         description: desc,
-        images: [finalOgImage],
-      } : undefined,
+        images: finalOgImage ? [finalOgImage] : [],
+      },
       metadataBase: baseUrl ? new URL(baseUrl) : undefined,
     }
     } catch (err) {
