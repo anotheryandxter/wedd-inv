@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       const ogUrl = `${SITE_URL.replace(/\/$/, '')}/api/og?v=${stamp}`
       const imgRes = await fetch(ogUrl)
       if (!imgRes.ok) {
-        return new Response(JSON.stringify({ success: false, error: `Failed to fetch generated OG image: ${imgRes.status}` }), { status: 502 })
+        return new Response(JSON.stringify({ success: false, error: `Failed to fetch generated OG image: ${imgRes.status}`, ogUrl, SITE_URL, VERCEL_URL: process.env.VERCEL_URL || null }), { status: 502 })
       }
       buf = Buffer.from(await imgRes.arrayBuffer())
     }
