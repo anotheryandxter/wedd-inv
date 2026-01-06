@@ -91,7 +91,8 @@ export async function generateMetadata(): Promise<Metadata> {
     const ogImageAbsolute = explicitOg && !/^https?:\/\//i.test(explicitOg) && baseUrl
       ? `${baseUrl}/${String(explicitOg).replace(/^\/*/, "")}`
       : explicitOg
-    const generatedOgUrl = baseUrl ? `${baseUrl}/api/og` : null
+    const ogVersion = settings?.og_version || 1
+    const generatedOgUrl = baseUrl ? `${baseUrl}/api/og?v=${ogVersion}` : null
     const finalOgImage = ogImageAbsolute || generatedOgUrl
 
     return {

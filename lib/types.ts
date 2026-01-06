@@ -38,6 +38,7 @@ export interface WeddingSettings {
   splash_overlay_color?: string
   og_image?: string // Open Graph preview image for social media (WhatsApp, Facebook, Twitter)
   og_description?: string // Custom description used for link previews (meta/og/whatsapp)
+  og_version?: number // Cache busting version for OG previews (increment to force social media refresh)
   whatsapp_template?: string
   site_name?: string
   favicon?: string

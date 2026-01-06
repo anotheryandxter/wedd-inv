@@ -136,9 +136,18 @@ export async function updateWeddingSettings(settingsId: string, settings: Partia
     }) as any
   }
 
+  // Get current og_version to increment it
+  const { data: currentData } = await supabase
+    .from("wedding_settings")
+    .select("og_version")
+    .eq("id", settingsId)
+    .single()
+  
+  const newOgVersion = (currentData?.og_version || 0) + 1
+
   const { data, error } = await supabase
     .from("wedding_settings")
-    .update({ ...settings, updated_at: new Date().toISOString() })
+    .update({ ...settings, updated_at: new Date().toISOString(), og_version: newOgVersion })
     .eq("id", settingsId)
     .select()
     .single()

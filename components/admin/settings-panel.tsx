@@ -1313,7 +1313,25 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                 />
                 <div className="flex gap-2 mt-2">
                   <Button size="sm" onClick={() => handleSaveAssetUrl('og_description', (formData.og_description as string) || settings?.og_description || '')}>Simpan</Button>
+                  <Button 
+                    size="sm" 
+                    variant="outline"
+                    onClick={async () => {
+                      if (!settings?.id) return
+                      const result = await updateWeddingSettings(settings.id, {})
+                      if (result.success && result.data) {
+                        setMessage({ type: "success", text: `Preview link diperbarui! Versi: ${result.data.og_version || 1}` })
+                        onUpdate(result.data)
+                      }
+                    }}
+                  >
+                    Refresh Preview Cache
+                  </Button>
                 </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Klik "Refresh Preview Cache" untuk memaksa WhatsApp/Facebook mengambil preview gambar terbaru. 
+                  Versi saat ini: {settings?.og_version || 1}
+                </p>
               </div>
             </div>
         </div>
