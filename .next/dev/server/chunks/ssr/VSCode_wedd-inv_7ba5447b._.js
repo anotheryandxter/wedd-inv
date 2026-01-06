@@ -317,10 +317,16 @@ async function addGuest(guestData) {
 }
 async function updateGuest(id, updates) {
     const supabase = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$lib$2f$supabase$2f$server$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createClient"])();
+    // If name is updated, regenerate slug/unique_slug so links match the new name
     const payload = {
-        ...updates,
-        updated_at: new Date().toISOString()
+        ...updates
     };
+    if (updates.name && String(updates.name).trim().length > 0) {
+        const slugBase = String(updates.name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + "-" + Math.random().toString(36).substr(2, 6);
+        payload.slug = slugBase;
+        payload.unique_slug = slugBase;
+    }
+    payload.updated_at = new Date().toISOString();
     const { data, error } = await supabase.from("guests").update(payload).eq("id", id).select().single();
     if (error) {
         console.error("updateGuest: supabase update error", {

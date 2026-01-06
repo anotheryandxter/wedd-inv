@@ -37,6 +37,7 @@ export interface WeddingSettings {
   // When mode is 'custom', this hex value (e.g. '#000000') will be used as overlay color
   splash_overlay_color?: string
   og_image?: string // Open Graph preview image for social media (WhatsApp, Facebook, Twitter)
+  og_description?: string // Custom description used for link previews (meta/og/whatsapp)
   whatsapp_template?: string
   site_name?: string
   favicon?: string

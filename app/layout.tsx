@@ -51,7 +51,8 @@ export async function generateMetadata(): Promise<Metadata> {
     const { data } = await supabase.from("wedding_settings").select("*").single()
     const settings = (data || {}) as WeddingSettings
     const siteTitle = settings?.site_name || "Wedding Invitation | Undangan Pernikahan Digital"
-    const desc = settings?.quote || "Kami mengundang Anda untuk hadir di hari bahagia kami"
+    // Prefer an explicit OG/share description when provided. Fall back to quote, then a short default.
+    const desc = settings?.og_description || settings?.quote || "Suatu kehormatan apabila Bapak/Ibu/Saudara dapat hadir pada acara pernikahan kami"
     let favicon = settings?.favicon || null
     // Ensure favicon is an absolute URL. If admin supplied a relative path, prefix with site URL.
     // Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL (active deployment) > SITE_URL

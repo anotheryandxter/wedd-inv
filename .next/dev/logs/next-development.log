@@ -1,9 +1,7 @@
-[00:00:01.021] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.139] Server  LOG      ✓ Ready in 847ms
-[00:00:11.436] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:11.436] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin","route":"/admin"}
-[00:00:11.436] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"http://localhost:3000/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1767671103380}
-[00:00:46.816] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:01.055] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.174] Server  LOG      ✓ Ready in 873ms
+[00:02:35.636] Server  LOG      ○ Compiling / ...
+[00:02:41.008] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -17,7 +15,7 @@ It can also happen if the client has a browser extension installed which messes 
 
   ...
     <main className="min-h-scre..." onContextMenu={function onContextMenu} onMouseDown={function onMouseDown}>
-      <SplashScreen groomName="Rahmad Gun..." brideName="Eka Saputr..." guestName="Dxterrrrr" onOpen={function onOpen} ...>
+      <SplashScreen groomName="Rahmad Gun..." brideName="Eka Saputr..." guestName={undefined} onOpen={function onOpen} ...>
         <AnimatePresence>
           <PresenceChild isPresent={true} initial={undefined} custom={undefined} presenceAffectsLayout={true} mode="sync" ...>
             <motion.div initial={{opacity:1}} exit={{opacity:0}} transition={{duration:0.8}} className="fixed inse...">
@@ -33,7 +31,7 @@ It can also happen if the client has a browser extension installed which messes 
                             className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origi..."
                             style={{
 +                             fontSize: "4rem"
-+                             transform: "scale(1)"
++                             transform: "scale(0.6207236842105263)"
 -                             transform: "scale(0.246711)"
 -                             font-size: "4rem"
                             }}
@@ -45,7 +43,7 @@ It can also happen if the client has a browser extension installed which messes 
                             className="font-serif text-gold-gradient font-medium leading-tight whitespace-nowrap origi..."
                             style={{
 +                             fontSize: "4rem"
-+                             transform: "scale(1)"
++                             transform: "scale(0.6207236842105263)"
 -                             transform: "scale(0.246711)"
 -                             font-size: "4rem"
                             }}
@@ -53,8 +51,12 @@ It can also happen if the client has a browser extension installed which messes 
 +                           Eka Saputri Febriandani, S.Pd.I.,M.Pd.
                     ...
 
-[00:00:46.816] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:46.816] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:46.816] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/?to=tester-esymi2 color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/?to=tester-esymi2","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1767671138759}
-[00:01:42.076] Server  LOG      ✓ Compiled in 119ms
-[00:03:13.823] Server  LOG      ✓ Compiled in 99ms
+[00:02:41.119] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:41.120] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:02:41.120] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1767690539022}
+[00:02:58.442] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:58.442] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin/login","route":"/admin/login"}
+[00:02:58.443] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"http://localhost:3000/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1767690556344}
+[00:03:11.514] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:11.515] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admin color: rgb(120, 120, 120) color: inherit {"dp":"/admin","o":"http://localhost:3000/admin","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1767690569399}
+[00:03:41.945] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"http://localhost:3000/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1767690599838}

@@ -6168,6 +6168,79 @@ function SettingsPanel({ settings, onUpdate }) {
                                                         fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
                                                         lineNumber: 901,
                                                         columnNumber: 13
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "glass rounded-2xl p-6 mt-6",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                className: "font-medium text-foreground mb-4",
+                                                                children: "Deskripsi Preview Link"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                                lineNumber: 1297,
+                                                                columnNumber: 15
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-sm text-muted-foreground mb-4",
+                                                                children: "Deskripsi ini akan dipakai sebagai teks preview saat link undangan dibagikan di WhatsApp, Facebook, dan Twitter. Jika dikosongkan, akan menggunakan kutipan undangan atau nilai default."
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                                lineNumber: 1298,
+                                                                columnNumber: 15
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "space-y-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Label"], {
+                                                                        htmlFor: "og_description",
+                                                                        children: "Deskripsi Preview"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                                        lineNumber: 1302,
+                                                                        columnNumber: 17
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
+                                                                        id: "og_description",
+                                                                        value: formData.og_description || settings?.og_description || '',
+                                                                        onChange: (e)=>setFormData((p)=>({
+                                                                                    ...p,
+                                                                                    og_description: e.target.value
+                                                                                })),
+                                                                        className: "bg-white/50",
+                                                                        placeholder: "Suatu kehormatan apabila Bapak/Ibu/Saudara dapat hadir pada acara pernikahan kami",
+                                                                        rows: 3
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                                        lineNumber: 1303,
+                                                                        columnNumber: 17
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex gap-2 mt-2",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                                            size: "sm",
+                                                                            onClick: ()=>handleSaveAssetUrl('og_description', formData.og_description || settings?.og_description || ''),
+                                                                            children: "Simpan"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                                            lineNumber: 1312,
+                                                                            columnNumber: 19
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                                        lineNumber: 1311,
+                                                                        columnNumber: 17
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                                lineNumber: 1301,
+                                                                columnNumber: 15
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
+                                                        lineNumber: 1296,
+                                                        columnNumber: 13
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
@@ -6180,7 +6253,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                                 children: message.text
                                             }, void 0, false, {
                                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                lineNumber: 1299,
+                                                lineNumber: 1320,
                                                 columnNumber: 11
                                             }, this)
                                         ]
@@ -6207,7 +6280,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                                 className: "w-4 h-4 mr-2 animate-spin"
                                             }, void 0, false, {
                                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                lineNumber: 1318,
+                                                lineNumber: 1339,
                                                 columnNumber: 17
                                             }, this),
                                             "Menyimpan..."
@@ -6218,7 +6291,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                                 className: "w-4 h-4 mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                lineNumber: 1323,
+                                                lineNumber: 1344,
                                                 columnNumber: 17
                                             }, this),
                                             "Simpan Pengaturan"
@@ -6226,12 +6299,12 @@ function SettingsPanel({ settings, onUpdate }) {
                                     }, void 0, true)
                                 }, void 0, false, {
                                     fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                    lineNumber: 1315,
+                                    lineNumber: 1336,
                                     columnNumber: 11
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                lineNumber: 1314,
+                                lineNumber: 1335,
                                 columnNumber: 9
                             }, this)
                         ]
@@ -6248,7 +6321,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                 children: "Ganti Password Admin"
                             }, void 0, false, {
                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                lineNumber: 1333,
+                                lineNumber: 1354,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -6262,7 +6335,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                                 children: "Password baru"
                                             }, void 0, false, {
                                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                lineNumber: 1336,
+                                                lineNumber: 1357,
                                                 columnNumber: 13
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6272,13 +6345,13 @@ function SettingsPanel({ settings, onUpdate }) {
                                                 onChange: (e)=>setNewPassword(e.target.value)
                                             }, void 0, false, {
                                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                lineNumber: 1337,
+                                                lineNumber: 1358,
                                                 columnNumber: 13
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                        lineNumber: 1335,
+                                        lineNumber: 1356,
                                         columnNumber: 11
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6288,7 +6361,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                                 children: "Konfirmasi password"
                                             }, void 0, false, {
                                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                lineNumber: 1340,
+                                                lineNumber: 1361,
                                                 columnNumber: 13
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6298,13 +6371,13 @@ function SettingsPanel({ settings, onUpdate }) {
                                                 onChange: (e)=>setConfirmPassword(e.target.value)
                                             }, void 0, false, {
                                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                lineNumber: 1341,
+                                                lineNumber: 1362,
                                                 columnNumber: 13
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                        lineNumber: 1339,
+                                        lineNumber: 1360,
                                         columnNumber: 11
                                     }, this),
                                     pwMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6312,7 +6385,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                         children: pwMessage.text
                                     }, void 0, false, {
                                         fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                        lineNumber: 1345,
+                                        lineNumber: 1366,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6327,7 +6400,7 @@ function SettingsPanel({ settings, onUpdate }) {
                                                         className: "w-4 h-4 mr-2 animate-spin"
                                                     }, void 0, false, {
                                                         fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                                        lineNumber: 1354,
+                                                        lineNumber: 1375,
                                                         columnNumber: 19
                                                     }, this),
                                                     "Mengubah..."
@@ -6335,24 +6408,24 @@ function SettingsPanel({ settings, onUpdate }) {
                                             }, void 0, true) : "Ganti Password"
                                         }, void 0, false, {
                                             fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                            lineNumber: 1351,
+                                            lineNumber: 1372,
                                             columnNumber: 13
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                        lineNumber: 1350,
+                                        lineNumber: 1371,
                                         columnNumber: 11
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                                lineNumber: 1334,
+                                lineNumber: 1355,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                        lineNumber: 1332,
+                        lineNumber: 1353,
                         columnNumber: 7
                     }, this)
                 ]
@@ -6371,7 +6444,7 @@ function SettingsPanel({ settings, onUpdate }) {
                 overlayColor: (formData.splash_overlay_color ?? settings?.splash_overlay_color) || null
             }, void 0, false, {
                 fileName: "[project]/VSCode/wedd-inv/components/admin/settings-panel.tsx",
-                lineNumber: 1366,
+                lineNumber: 1387,
                 columnNumber: 9
             }, this)
         ]

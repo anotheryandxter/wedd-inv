@@ -261,7 +261,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
     })
   }
 
-  const handleSaveAssetUrl = async (field: 'hero_image' | 'background_image' | 'splash_image' | 'og_image' | 'music_url' | 'whatsapp_template' | 'hint_box_text' | 'favicon' | 'site_name' | 'groom_photo' | 'bride_photo', value: string) => {
+  const handleSaveAssetUrl = async (field: 'hero_image' | 'background_image' | 'splash_image' | 'og_image' | 'music_url' | 'whatsapp_template' | 'hint_box_text' | 'favicon' | 'site_name' | 'groom_photo' | 'bride_photo' | 'og_description', value: string) => {
     if (!settings?.id) return
     setAssetMessage(null)
     startTransition(async () => {
@@ -1289,6 +1289,27 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                       Hapus
                     </Button>
                   </div>
+                </div>
+              </div>
+            </div>
+            {/* Open Graph / Share Description */}
+            <div className="glass rounded-2xl p-6 mt-6">
+              <h3 className="font-medium text-foreground mb-4">Deskripsi Preview Link</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Deskripsi ini akan dipakai sebagai teks preview saat link undangan dibagikan di WhatsApp, Facebook, dan Twitter. Jika dikosongkan, akan menggunakan kutipan undangan atau nilai default.
+              </p>
+              <div className="space-y-2">
+                <Label htmlFor="og_description">Deskripsi Preview</Label>
+                <Textarea
+                  id="og_description"
+                  value={(formData.og_description as string) || settings?.og_description || ''}
+                  onChange={(e) => setFormData((p) => ({ ...p, og_description: e.target.value }))}
+                  className="bg-white/50"
+                  placeholder="Suatu kehormatan apabila Bapak/Ibu/Saudara dapat hadir pada acara pernikahan kami"
+                  rows={3}
+                />
+                <div className="flex gap-2 mt-2">
+                  <Button size="sm" onClick={() => handleSaveAssetUrl('og_description', (formData.og_description as string) || settings?.og_description || '')}>Simpan</Button>
                 </div>
               </div>
             </div>
