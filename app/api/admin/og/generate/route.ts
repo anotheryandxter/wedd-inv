@@ -14,15 +14,30 @@ export async function POST(req: NextRequest) {
       return new Response(JSON.stringify({ success: false, error: 'Supabase service key not configured' }), { status: 500 })
     }
 
-    // Request a fresh image from our dynamic OG endpoint
+    // Request a fresh image from our dynamic OG generator by invoking the module directly.
     const stamp = Date.now()
-    const ogUrl = `${SITE_URL.replace(/\/$/, '')}/api/og?v=${stamp}`
-    const imgRes = await fetch(ogUrl)
-    if (!imgRes.ok) {
-      return new Response(JSON.stringify({ success: false, error: `Failed to fetch generated OG image: ${imgRes.status}` }), { status: 502 })
+    let buf: Buffer | null = null
+
+    try {
+      // Import the OG route module and call its GET handler directly to avoid network fetch issues
+      const ogModule = await import('../../og/route')
+      if (ogModule && typeof ogModule.GET === 'function') {
+        const fakeReq = new Request(`${SITE_URL.replace(/\/$/, '')}/api/og?v=${stamp}`)
+        const ogResponse: Response = await ogModule.GET(fakeReq)
+        if (!ogResponse.ok) throw new Error(`OG handler responded ${ogResponse.status}`)
+        buf = Buffer.from(await ogResponse.arrayBuffer())
+      }
+    } catch (e) {
+      // Fallback to fetching the public endpoint if direct import fails
+      const ogUrl = `${SITE_URL.replace(/\/$/, '')}/api/og?v=${stamp}`
+      const imgRes = await fetch(ogUrl)
+      if (!imgRes.ok) {
+        return new Response(JSON.stringify({ success: false, error: `Failed to fetch generated OG image: ${imgRes.status}` }), { status: 502 })
+      }
+      buf = Buffer.from(await imgRes.arrayBuffer())
     }
 
-    const buf = Buffer.from(await imgRes.arrayBuffer())
+    if (!buf) return new Response(JSON.stringify({ success: false, error: 'Failed to generate OG image' }), { status: 500 })
 
     // Upload to Supabase storage
     const supabase = createSupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } })
