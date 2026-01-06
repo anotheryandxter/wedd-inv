@@ -92,8 +92,15 @@ export async function generateMetadata(): Promise<Metadata> {
       ? `${baseUrl}/${String(explicitOg).replace(/^\/*/, "")}`
       : explicitOg
     const ogVersion = settings?.og_version || 1
+    // If an explicit OG image is provided, append the og_version as a cache-busting query
+    // parameter unless one already exists. Otherwise fall back to the dynamic /api/og
+    let finalExplicitOg: string | null = ogImageAbsolute || null
+    if (finalExplicitOg && !/[?&]v=\d+/.test(finalExplicitOg)) {
+      finalExplicitOg = `${finalExplicitOg}${finalExplicitOg.includes('?') ? '&' : '?'}v=${ogVersion}`
+    }
+
     const generatedOgUrl = baseUrl ? `${baseUrl}/api/og?v=${ogVersion}` : null
-    const finalOgImage = ogImageAbsolute || generatedOgUrl
+    const finalOgImage = finalExplicitOg || generatedOgUrl
 
     return {
       title: siteTitle,
