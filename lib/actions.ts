@@ -280,7 +280,17 @@ export async function addGuest(guestData: {
 export async function updateGuest(id: string, updates: Partial<{ name: string; phone: string; address: string; guest_count: number; attendance_status: string }>) {
   const supabase = await createClient()
 
-  const payload = { ...updates, updated_at: new Date().toISOString() }
+  // If name is updated, regenerate slug/unique_slug so links match the new name
+  const payload: any = { ...updates }
+  if (updates.name && String(updates.name).trim().length > 0) {
+    const slugBase = String(updates.name)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "") + "-" + Math.random().toString(36).substr(2, 6)
+    payload.slug = slugBase
+    payload.unique_slug = slugBase
+  }
+  payload.updated_at = new Date().toISOString()
 
   const { data, error } = await supabase.from("guests").update(payload).eq("id", id).select().single()
 

@@ -1,0 +1,3 @@
+{
+  "/api/admin/guests/import/route": "app/api/admin/guests/import/route.js"
+}

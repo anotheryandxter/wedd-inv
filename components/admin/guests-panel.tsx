@@ -1,12 +1,23 @@
 "use client"
 
-import { useState, useTransition } from "react"
+import { useState, useTransition, useRef } from "react"
 import type { Guest } from "@/lib/types"
 import type { WeddingSettings } from "@/lib/types"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog"
 import { Plus, Trash2, Search, Copy, UserCheck, UserX, Clock, Users, Loader2, Send } from "lucide-react"
+import { useToast } from '@/hooks/use-toast'
+import { ToastAction } from '@/components/ui/toast'
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 import { addGuest, deleteGuest, updateGuest } from "@/lib/actions"
 
@@ -32,6 +43,54 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
 
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editForm, setEditForm] = useState<Partial<Guest>>({})
+  const [isImporting, setIsImporting] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement | null>(null)
+  const [previewOpen, setPreviewOpen] = useState(false)
+  const [csvHeaders, setCsvHeaders] = useState<string[] | null>(null)
+  const [csvRows, setCsvRows] = useState<string[][]>([])
+  const [hasHeaderRow, setHasHeaderRow] = useState(true)
+  const [columnMap, setColumnMap] = useState<{ name?: number | null; phone?: number | null }>({})
+  const [fileToImport, setFileToImport] = useState<File | null>(null)
+  const { toast } = useToast()
+
+  function parseCSV(text: string) {
+    const rows: string[][] = []
+    let cur = ''
+    let row: string[] = []
+    let inQuotes = false
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i]
+      if (ch === '"') {
+        if (inQuotes && text[i + 1] === '"') {
+          cur += '"'
+          i++
+          continue
+        }
+        inQuotes = !inQuotes
+        continue
+      }
+      if (ch === ',' && !inQuotes) {
+        row.push(cur)
+        cur = ''
+        continue
+      }
+      if ((ch === '\n' || ch === '\r') && !inQuotes) {
+        if (cur !== '' || row.length > 0) {
+          row.push(cur)
+          rows.push(row)
+          row = []
+          cur = ''
+        }
+        continue
+      }
+      cur += ch
+    }
+    if (cur !== '' || row.length > 0) {
+      row.push(cur)
+      rows.push(row)
+    }
+    return rows
+  }
 
   const filteredGuests = guests.filter((guest) => {
     const q = searchTerm.toLowerCase()
@@ -70,6 +129,19 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
   const handleStartEdit = (guest: Guest) => {
     setEditingId(guest.id)
     setEditForm({ ...guest })
+    focusNameInput(guest.id)
+  }
+  
+  // focus the name input after entering edit mode
+  const focusNameInput = (id: string) => {
+    setTimeout(() => {
+      try {
+        const el = document.getElementById(`guest-name-input-${id}`) as HTMLInputElement | null
+        if (el) el.focus()
+      } catch (e) {
+        // ignore
+      }
+    }, 50)
   }
 
   const handleSaveEdit = async (id: string) => {
@@ -83,9 +155,43 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
 
       const result = await updateGuest(id, payload)
       if (result.success && result.data) {
+        const old = guests.find((g) => g.id === id)
         onUpdate(guests.map((g) => (g.id === id ? result.data : g)))
         setEditingId(null)
         setEditForm({})
+        // notify if slug changed
+        try {
+          const newSlug = result.data.unique_slug || result.data.slug
+          const oldSlug = old?.unique_slug || old?.slug
+          if (newSlug && oldSlug && newSlug !== oldSlug) {
+            const link = `${typeof window !== 'undefined' ? window.location.origin : ''}?to=${newSlug}`
+            toast({
+              title: 'Link undangan diperbarui',
+              description: (
+                <span className="truncate block">Link baru disalin atau buka langsung.</span>
+              ),
+              action: (
+                <ToastAction asChild>
+                  <button
+                    className="inline-flex h-8 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium"
+                    onClick={() => {
+                      try {
+                        navigator.clipboard.writeText(link)
+                        alert('Link disalin ke clipboard')
+                      } catch (e) {
+                        // ignore
+                      }
+                    }}
+                  >
+                    Salin Link
+                  </button>
+                </ToastAction>
+              ),
+            })
+          }
+        } catch (e) {
+          // ignore toast errors
+        }
       }
     })
   }
@@ -186,6 +292,31 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
   const attending = guests.filter((g) => g.attendance_status === "attending")
   const totalAttending = attending.reduce((sum, g) => sum + g.guest_count, 0)
 
+  const doImport = async () => {
+    if (!fileToImport) return alert('File tidak tersedia')
+    setIsImporting(true)
+    try {
+      const fd = new FormData()
+      fd.append('file', fileToImport)
+      const res = await fetch('/api/admin/guests/import', { method: 'POST', body: fd })
+      const json = await res.json()
+      if (!json.success) {
+        alert(json.error || 'Import gagal')
+      } else {
+        alert(`Berhasil import ${json.imported || 0} tamu`)
+        if (json.data) onUpdate(json.data)
+        setPreviewOpen(false)
+      }
+    } catch (err) {
+      console.error(err)
+      alert('Terjadi kesalahan saat import')
+    } finally {
+      setIsImporting(false)
+      setFileToImport(null)
+      if (fileInputRef.current) fileInputRef.current.value = ''
+    }
+  }
+
   return (
     <div>
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -198,6 +329,55 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
             <Plus className="w-4 h-4 mr-2" />
             Tambah Tamu
           </Button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".csv,text/csv"
+            className="hidden"
+            onChange={async (e) => {
+              const f = e.target.files?.[0]
+              if (!f) return
+              setFileToImport(f)
+              try {
+                const text = await f.text()
+                const rows = parseCSV(text)
+                if (rows.length === 0) return alert('CSV kosong atau tidak terbaca')
+
+                // detect header
+                const first = rows[0].map((c) => c.trim().toLowerCase())
+                const hasHeader = first.some((h) => ['name', 'nama', 'phone', 'nomor', 'hp', 'nomor_hp'].includes(h))
+                setHasHeaderRow(hasHeader)
+
+                const headers = hasHeader ? rows[0].map((c) => c.trim()) : rows[0].map((_, i) => `Column ${i + 1}`)
+                const dataRows = hasHeader ? rows.slice(1) : rows
+                setCsvHeaders(headers)
+                setCsvRows(dataRows)
+
+                // default mapping: try to find name/phone by header, else first/second
+                let nameIdx: number | null = null
+                let phoneIdx: number | null = null
+                if (hasHeader) {
+                  headers.forEach((h, idx) => {
+                    const key = h.trim().toLowerCase()
+                    if (['name', 'nama'].includes(key) && nameIdx == null) nameIdx = idx
+                    if (['phone', 'nomor', 'hp', 'nomor_hp'].includes(key) && phoneIdx == null) phoneIdx = idx
+                  })
+                }
+                if (nameIdx == null) nameIdx = 0
+                if (phoneIdx == null) phoneIdx = Math.min(1, headers.length - 1)
+                setColumnMap({ name: nameIdx, phone: phoneIdx })
+                setPreviewOpen(true)
+              } catch (err) {
+                console.error(err)
+                alert('Gagal membaca file CSV')
+                setFileToImport(null)
+              }
+            }}
+          />
+          <Button onClick={() => fileInputRef.current?.click()} className="bg-gold hover:bg-gold/90 text-white">
+            <Plus className="w-4 h-4 mr-2" />
+            Import CSV
+          </Button>
           <Tooltip>
             <TooltipTrigger asChild>
               <Button onClick={batchSendWhatsApp} className="bg-gold hover:bg-gold/90 text-white">
@@ -208,6 +388,82 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
           </Tooltip>
         </div>
       </div>
+
+      {/* CSV Preview Modal */}
+      <Dialog open={previewOpen} onOpenChange={(v) => setPreviewOpen(v)}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Preview CSV sebelum import</DialogTitle>
+            <DialogDescription>Periksa kolom dan contoh baris. Sesuaikan pemetaan kolom sebelum mengimpor.</DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2">
+                <input type="checkbox" checked={hasHeaderRow} onChange={(e) => setHasHeaderRow(e.target.checked)} />
+                <span className="text-sm text-muted-foreground">Baris pertama adalah header</span>
+              </label>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label>Kolom Nama</Label>
+                <select
+                  className="w-full bg-background border rounded p-2"
+                  value={columnMap.name ?? 0}
+                  onChange={(e) => setColumnMap((p) => ({ ...p, name: Number(e.target.value) }))}
+                >
+                  {(csvHeaders || []).map((h, i) => (
+                    <option key={i} value={i}>{h || `Kolom ${i + 1}`}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <Label>Kolom Telepon</Label>
+                <select
+                  className="w-full bg-background border rounded p-2"
+                  value={columnMap.phone ?? 0}
+                  onChange={(e) => setColumnMap((p) => ({ ...p, phone: Number(e.target.value) }))}
+                >
+                  {(csvHeaders || []).map((h, i) => (
+                    <option key={i} value={i}>{h || `Kolom ${i + 1}`}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="overflow-auto max-h-64 border rounded">
+              <table className="w-full text-sm">
+                <thead className="bg-slate-50">
+                  <tr>
+                    <th className="p-2 text-left">#</th>
+                    <th className="p-2 text-left">Nama</th>
+                    <th className="p-2 text-left">Telepon</th>
+                    <th className="p-2 text-left">Raw</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(csvRows || []).slice(0, 10).map((r, idx) => (
+                    <tr key={idx} className="odd:bg-white even:bg-slate-50">
+                      <td className="p-2 align-top">{idx + 1}</td>
+                      <td className="p-2 align-top">{r[columnMap.name ?? 0] ?? ''}</td>
+                      <td className="p-2 align-top">{r[columnMap.phone ?? 1] ?? ''}</td>
+                      <td className="p-2 align-top text-xs text-muted-foreground truncate">{r.join(' | ')}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button variant="outline" onClick={() => { setPreviewOpen(false); setFileToImport(null); if (fileInputRef.current) fileInputRef.current.value = '' }}>Batal</Button>
+            <Button onClick={doImport} className="bg-gold hover:bg-gold/90 text-white">
+              {isImporting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : 'Import'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -338,7 +594,7 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <h4 className="font-medium text-foreground truncate">{guest.name}</h4>
+                    <h4 className="font-medium text-foreground truncate cursor-pointer" onDoubleClick={() => handleStartEdit(guest)} title="Klik dua kali untuk edit">{guest.name}</h4>
                     {getStatusIcon(guest.attendance_status)}
                     <span className="text-xs text-muted-foreground">({getStatusText(guest.attendance_status)})</span>
                   </div>
@@ -386,8 +642,8 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
 
             {editingId === guest.id && (
               <div className="mt-3">
-                <div className="grid md:grid-cols-3 gap-3">
-                  <Input value={(editForm.name as string) || ''} onChange={(e) => setEditForm((p) => ({ ...(p || {}), name: e.target.value }))} />
+                  <div className="grid md:grid-cols-3 gap-3">
+                  <Input id={`guest-name-input-${guest.id}`} value={(editForm.name as string) || ''} onChange={(e) => setEditForm((p) => ({ ...(p || {}), name: e.target.value }))} onKeyDown={(e) => { if (e.key === 'Enter') handleSaveEdit(guest.id) }} />
                   <Input value={(editForm.phone as string) || ''} onChange={(e) => setEditForm((p) => ({ ...(p || {}), phone: e.target.value }))} />
                   <Input type="number" value={(editForm.guest_count as number) || 1} onChange={(e) => setEditForm((p) => ({ ...(p || {}), guest_count: Number(e.target.value) }))} />
                 </div>

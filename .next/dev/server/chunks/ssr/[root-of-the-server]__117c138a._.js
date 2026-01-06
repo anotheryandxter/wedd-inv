@@ -168,7 +168,8 @@ async function generateMetadata() {
         const desc = settings?.quote || "Kami mengundang Anda untuk hadir di hari bahagia kami";
         let favicon = settings?.favicon || null;
         // Ensure favicon is an absolute URL. If admin supplied a relative path, prefix with site URL.
-        const baseUrlRaw = ("TURBOPACK compile-time value", "https://wedd-inv-ten.vercel.app") || process.env.SITE_URL || "";
+        // Priority: NEXT_PUBLIC_SITE_URL > VERCEL_URL (active deployment) > SITE_URL
+        const baseUrlRaw = ("TURBOPACK compile-time value", "https://wedd-inv-ten.vercel.app") || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') || process.env.SITE_URL || "";
         const baseUrl = String(baseUrlRaw).replace(/\/$/, "");
         if (favicon && !/^https?:\/\//i.test(favicon) && baseUrl) {
             // remove leading slashes
@@ -201,8 +202,8 @@ async function generateMetadata() {
                 shortcut: urlWithCache
             };
         })() : undefined;
-        // Use splash_image for social share preview, fallback to hero_image
-        const ogImage = settings?.splash_image || settings?.hero_image || null;
+        // Use og_image first, then splash_image, then hero_image as fallback
+        const ogImage = settings?.og_image || settings?.splash_image || settings?.hero_image || null;
         const ogImageAbsolute = ogImage && !/^https?:\/\//i.test(ogImage) && baseUrl ? `${baseUrl}/${String(ogImage).replace(/^\/*/, "")}` : ogImage;
         return {
             title: siteTitle,
@@ -215,22 +216,24 @@ async function generateMetadata() {
                 images: [
                     {
                         url: ogImageAbsolute,
-                        width: 128,
-                        height: 128,
+                        width: 1200,
+                        height: 630,
                         alt: siteTitle
                     }
                 ],
                 type: 'website',
-                siteName: siteTitle
+                siteName: siteTitle,
+                url: baseUrl || undefined
             } : undefined,
             twitter: ogImageAbsolute ? {
-                card: 'summary',
+                card: 'summary_large_image',
                 title: siteTitle,
                 description: desc,
                 images: [
                     ogImageAbsolute
                 ]
-            } : undefined
+            } : undefined,
+            metadataBase: baseUrl ? new URL(baseUrl) : undefined
         };
     } catch (err) {
         return defaultMetadata;
@@ -253,18 +256,18 @@ function RootLayout({ children }) {
                 children,
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f40$vercel$2b$analytics$40$1$2e$6$2e$1_next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f40$vercel$2f$analytics$2f$dist$2f$next$2f$index$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Analytics"], {}, void 0, false, {
                     fileName: "[project]/VSCode/wedd-inv/app/layout.tsx",
-                    lineNumber: 138,
+                    lineNumber: 143,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/VSCode/wedd-inv/app/layout.tsx",
-            lineNumber: 136,
+            lineNumber: 141,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/VSCode/wedd-inv/app/layout.tsx",
-        lineNumber: 135,
+        lineNumber: 140,
         columnNumber: 5
     }, this);
 }
