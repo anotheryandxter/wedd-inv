@@ -55,15 +55,17 @@ export async function GET(req: Request) {
       {
         width: 1200,
         height: 630,
-        format: 'png',
+        // prefer WebP for smaller payloads so scrapers fetch the image
+        format: 'webp',
       }
     )
 
     // Render to an ArrayBuffer so we can return a Response with explicit headers
     const buf = await imageResponse.arrayBuffer()
-    return new Response(buf, { 
+    return new Response(buf, {
       headers: {
-        'Content-Type': 'image/png',
+        'Content-Type': 'image/webp',
+        // keep long client cache but allow CDN to revalidate more frequently
         'Cache-Control': 'public, max-age=31536000, immutable',
         'CDN-Cache-Control': 'public, s-maxage=86400',
       }
