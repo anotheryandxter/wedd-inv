@@ -97,7 +97,8 @@ export async function POST(req: Request) {
         'Content-Type': 'application/json',
         Prefer: 'return=representation',
       },
-      body: JSON.stringify({ og_image: publicUrl, og_version: (settings.og_version || 0) + 1, updated_at: new Date().toISOString() }),
+      // Do not modify og_version; disable version-based cache busting
+      body: JSON.stringify({ og_image: publicUrl, updated_at: new Date().toISOString() }),
     })
 
     if (!settingsRes.ok) {
