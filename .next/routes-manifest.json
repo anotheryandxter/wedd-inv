@@ -73,10 +73,22 @@
       "namedRegex": "^/api/admin/blast/batch(?:/)?$"
     },
     {
+      "page": "/api/admin/guests/import",
+      "regex": "^/api/admin/guests/import(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/guests/import(?:/)?$"
+    },
+    {
       "page": "/api/admin/reset-password",
       "regex": "^/api/admin/reset\\-password(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/admin/reset\\-password(?:/)?$"
+    },
+    {
+      "page": "/api/og",
+      "regex": "^/api/og(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/og(?:/)?$"
     },
     {
       "page": "/api/supabase-check",

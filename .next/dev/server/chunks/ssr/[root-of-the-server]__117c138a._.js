@@ -203,20 +203,23 @@ async function generateMetadata() {
                 shortcut: urlWithCache
             };
         })() : undefined;
-        // Use og_image first, then splash_image, then hero_image as fallback
-        const ogImage = settings?.og_image || settings?.splash_image || settings?.hero_image || null;
-        const ogImageAbsolute = ogImage && !/^https?:\/\//i.test(ogImage) && baseUrl ? `${baseUrl}/${String(ogImage).replace(/^\/*/, "")}` : ogImage;
+        // Use explicit `og_image` first. If none provided, fall back to a dynamic OG generator route
+        // which renders a social card with larger image and formatted text.
+        const explicitOg = settings?.og_image || settings?.splash_image || settings?.hero_image || null;
+        const ogImageAbsolute = explicitOg && !/^https?:\/\//i.test(explicitOg) && baseUrl ? `${baseUrl}/${String(explicitOg).replace(/^\/*/, "")}` : explicitOg;
+        const generatedOgUrl = baseUrl ? `${baseUrl}/api/og` : null;
+        const finalOgImage = ogImageAbsolute || generatedOgUrl || null;
         return {
             title: siteTitle,
             description: desc,
             icons,
             generator: "v0.app",
-            openGraph: ogImageAbsolute ? {
+            openGraph: finalOgImage ? {
                 title: siteTitle,
                 description: desc,
                 images: [
                     {
-                        url: ogImageAbsolute,
+                        url: finalOgImage,
                         width: 1200,
                         height: 630,
                         alt: siteTitle
@@ -226,12 +229,12 @@ async function generateMetadata() {
                 siteName: siteTitle,
                 url: baseUrl || undefined
             } : undefined,
-            twitter: ogImageAbsolute ? {
+            twitter: finalOgImage ? {
                 card: 'summary_large_image',
                 title: siteTitle,
                 description: desc,
                 images: [
-                    ogImageAbsolute
+                    finalOgImage
                 ]
             } : undefined,
             metadataBase: baseUrl ? new URL(baseUrl) : undefined
@@ -257,18 +260,18 @@ function RootLayout({ children }) {
                 children,
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$VSCode$2f$wedd$2d$inv$2f$node_modules$2f2e$pnpm$2f40$vercel$2b$analytics$40$1$2e$6$2e$1_next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f40$vercel$2f$analytics$2f$dist$2f$next$2f$index$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Analytics"], {}, void 0, false, {
                     fileName: "[project]/VSCode/wedd-inv/app/layout.tsx",
-                    lineNumber: 144,
+                    lineNumber: 147,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/VSCode/wedd-inv/app/layout.tsx",
-            lineNumber: 142,
+            lineNumber: 145,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/VSCode/wedd-inv/app/layout.tsx",
-        lineNumber: 141,
+        lineNumber: 144,
         columnNumber: 5
     }, this);
 }

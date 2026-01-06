@@ -1,0 +1,63 @@
+{
+  "sorted_middleware": [
+    "/api/og/route"
+  ],
+  "middleware": {},
+  "instrumentation": null,
+  "functions": {
+    "/api/og/route": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/server-reference-manifest.js",
+        "server/app/api/og/route_client-reference-manifest.js",
+        "server/edge/chunks/VSCode_wedd-inv__next-internal_server_app_api_og_route_actions_d9e52abb.js",
+        "server/edge/chunks/567fb_next_dist_esm_shared_lib_3b75fcfa._.js",
+        "server/edge/chunks/567fb_next_dist_esm_server_d658ec48._.js",
+        "server/edge/chunks/567fb_next_dist_esm_22f80cfe._.js",
+        "server/edge/chunks/567fb_next_dist_compiled_react-server-dom-turbopack_c3477729._.js",
+        "server/edge/chunks/567fb_next_dist_compiled_@vercel_og_101f3564._.js",
+        "server/edge/chunks/567fb_next_dist_compiled_86614986._.js",
+        "server/edge/chunks/567fb_next_dist_4d026baa._.js",
+        "server/edge/chunks/VSCode_wedd-inv_edge-wrapper_21eb7b9b.js",
+        "server/edge/chunks/221d4_@supabase_realtime-js_dist_module_85b92c18._.js",
+        "server/edge/chunks/10e32_@supabase_storage-js_dist_module_81554ef0._.js",
+        "server/edge/chunks/2c906_@supabase_auth-js_dist_module_64833140._.js",
+        "server/edge/chunks/0a2b7__pnpm_3ba8156a._.js",
+        "server/edge/chunks/[root-of-the-server]__2c5e0d99._.js",
+        "server/edge/chunks/turbopack-VSCode_wedd-inv_edge-wrapper_488a4ba2.js"
+      ],
+      "name": "app/api/og/route",
+      "page": "/api/og/route",
+      "matchers": [
+        {
+          "regexp": "^/api/og(?:/)?$",
+          "originalSource": "/api/og"
+        }
+      ],
+      "wasm": [
+        {
+          "name": "wasm_fdb56e4cc5936d29",
+          "filePath": "server/edge/chunks/567fb_next_dist_compiled_@vercel_og_resvg_23ace1ce.wasm"
+        },
+        {
+          "name": "wasm_1ccdc983b1fd9f87",
+          "filePath": "server/edge/chunks/567fb_next_dist_compiled_@vercel_og_yoga_23ace1ce.wasm"
+        }
+      ],
+      "assets": [
+        {
+          "name": "server/edge/assets/noto-sans-v27-latin-regular.bdfa676c.ttf",
+          "filePath": "server/edge/assets/noto-sans-v27-latin-regular.bdfa676c.ttf"
+        }
+      ],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "GNhpskeDwbrb8rq2iEQiTNeumKBHylZMvNOJsAzFSbU=",
+        "__NEXT_PREVIEW_MODE_ID": "ae0b3918b852cc61beb069dac14b4585",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "3eca41c1446633f3364e7fa9d36179b7420e121ca08de5d70bdbb08282472cda",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "2dbdb1d221bb03d84e757bed7a20d961a07877436b85aceab950ad0c4fef2dc1"
+      }
+    }
+  }
+}

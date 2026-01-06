@@ -55,22 +55,19 @@ export async function GET(req: Request) {
       {
         width: 1200,
         height: 630,
+        format: 'png',
       }
     )
 
     // Render to an ArrayBuffer so we can return a Response with explicit headers
-    try {
-      const buf = await imageResponse.arrayBuffer()
-      const headers: Record<string, string> = {
+    const buf = await imageResponse.arrayBuffer()
+    return new Response(buf, { 
+      headers: {
         'Content-Type': 'image/png',
-        'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=86400'
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'CDN-Cache-Control': 'public, s-maxage=86400',
       }
-      return new Response(buf, { headers })
-    } catch (e) {
-      console.error('OG render/response error', e)
-      // Fallback: return the original response if we can't read buffer
-      return imageResponse
-    }
+    })
   } catch (err) {
     console.error('OG generation error', err)
     return new Response('Error generating image', { status: 500 })

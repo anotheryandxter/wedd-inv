@@ -6,7 +6,9 @@
   "/admin/reset-password/page": "app/admin/reset-password/page.js",
   "/api/admin/blast/[id]/route": "app/api/admin/blast/[id]/route.js",
   "/api/admin/blast/batch/route": "app/api/admin/blast/batch/route.js",
+  "/api/admin/guests/import/route": "app/api/admin/guests/import/route.js",
   "/api/admin/reset-password/route": "app/api/admin/reset-password/route.js",
+  "/api/og/route": "app-edge-has-no-entrypoint",
   "/api/supabase-check/route": "app/api/supabase-check/route.js",
   "/api/upload/route": "app/api/upload/route.js",
   "/page": "app/page.js"

@@ -1,4 +1,13 @@
-[00:00:00.475] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:00.541] Server  LOG      ✓ Ready in 396ms
-[00:01:16.940] Server  WARN    Error: Route "/api/admin/blast/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
-[00:02:48.357] Server  WARN    Error: Route "/api/admin/blast/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:00:00.452] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.511] Server  LOG      ✓ Ready in 380ms
+[00:15:32.052] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:15:32.053] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admin/login","route":"/admin/login"}
+[00:15:32.053] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admin/login color: rgb(120, 120, 120) color: inherit {"dp":"/admin/login","o":"http://localhost:3000/admin/login","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1767713788026}
+[00:27:56.339] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+[00:27:56.351] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+[00:27:56.703] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+[00:27:56.714] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+[00:33:08.394] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+[00:33:08.404] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+[00:33:08.863] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
+[00:33:08.871] Server  ERROR   AuthApiError: Invalid Refresh Token: Refresh Token Not Found
