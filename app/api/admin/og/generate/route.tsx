@@ -54,7 +54,8 @@ export async function POST(req: Request) {
       {
         width: 1200,
         height: 630,
-        format: 'png',
+        // produce WebP for much smaller payloads (better for crawlers)
+        format: 'webp',
       }
     )
 
@@ -68,14 +69,14 @@ export async function POST(req: Request) {
     }
 
     const stamp = Date.now()
-    const filename = `og/${stamp}.png`
+    const filename = `og/${stamp}.webp`
     const uploadUrl = `${SUPABASE_URL.replace(/\/$/, '')}/storage/v1/object/wedding-assets/${encodeURIComponent(filename)}`
 
     const uploadRes = await fetch(uploadUrl, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
-        'Content-Type': 'image/png',
+        'Content-Type': 'image/webp',
       },
       body: buf,
     })
