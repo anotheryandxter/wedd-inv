@@ -85,23 +85,26 @@ export async function generateMetadata(): Promise<Metadata> {
         })()
       : undefined
 
-    // Use og_image first, then splash_image, then hero_image as fallback
-    const ogImage = settings?.og_image || settings?.splash_image || settings?.hero_image || null
-    const ogImageAbsolute = ogImage && !/^https?:\/\//i.test(ogImage) && baseUrl
-      ? `${baseUrl}/${String(ogImage).replace(/^\/*/, "")}`
-      : ogImage
+    // Use explicit `og_image` first. If none provided, fall back to a dynamic OG generator route
+    // which renders a social card with larger image and formatted text.
+    const explicitOg = settings?.og_image || settings?.splash_image || settings?.hero_image || null
+    const ogImageAbsolute = explicitOg && !/^https?:\/\//i.test(explicitOg) && baseUrl
+      ? `${baseUrl}/${String(explicitOg).replace(/^\/*/, "")}`
+      : explicitOg
+    const generatedOgUrl = baseUrl ? `${baseUrl}/api/og` : null
+    const finalOgImage = ogImageAbsolute || generatedOgUrl || null
 
     return {
       title: siteTitle,
       description: desc,
       icons,
       generator: "v0.app",
-      openGraph: ogImageAbsolute ? {
+      openGraph: finalOgImage ? {
         title: siteTitle,
         description: desc,
         images: [
           {
-            url: ogImageAbsolute,
+            url: finalOgImage,
             width: 1200,
             height: 630,
             alt: siteTitle,
@@ -111,11 +114,11 @@ export async function generateMetadata(): Promise<Metadata> {
         siteName: siteTitle,
         url: baseUrl || undefined,
       } : undefined,
-      twitter: ogImageAbsolute ? {
+      twitter: finalOgImage ? {
         card: 'summary_large_image',
         title: siteTitle,
         description: desc,
-        images: [ogImageAbsolute],
+        images: [finalOgImage],
       } : undefined,
       metadataBase: baseUrl ? new URL(baseUrl) : undefined,
     }
