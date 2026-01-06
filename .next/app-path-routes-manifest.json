@@ -7,6 +7,8 @@
   "/api/admin/blast/[id]/route": "/api/admin/blast/[id]",
   "/api/admin/blast/batch/route": "/api/admin/blast/batch",
   "/api/admin/guests/import/route": "/api/admin/guests/import",
+  "/api/admin/og/generate/route": "/api/admin/og/generate",
+  "/api/admin/og/refresh/route": "/api/admin/og/refresh",
   "/api/admin/reset-password/route": "/api/admin/reset-password",
   "/api/og/route": "/api/og",
   "/api/supabase-check/route": "/api/supabase-check",

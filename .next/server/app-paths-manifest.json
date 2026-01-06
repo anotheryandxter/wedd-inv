@@ -7,6 +7,8 @@
   "/api/admin/blast/[id]/route": "app/api/admin/blast/[id]/route.js",
   "/api/admin/blast/batch/route": "app/api/admin/blast/batch/route.js",
   "/api/admin/guests/import/route": "app/api/admin/guests/import/route.js",
+  "/api/admin/og/generate/route": "app/api/admin/og/generate/route.js",
+  "/api/admin/og/refresh/route": "app-edge-has-no-entrypoint",
   "/api/admin/reset-password/route": "app/api/admin/reset-password/route.js",
   "/api/og/route": "app-edge-has-no-entrypoint",
   "/api/supabase-check/route": "app/api/supabase-check/route.js",

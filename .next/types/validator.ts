@@ -110,6 +110,24 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/api/admin/og/generate/route.tsx
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/admin/og/generate">> = Specific
+  const handler = {} as typeof import("../../app/api/admin/og/generate/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/api/admin/og/refresh/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/admin/og/refresh">> = Specific
+  const handler = {} as typeof import("../../app/api/admin/og/refresh/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/api/admin/reset-password/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/admin/reset-password">> = Specific
