@@ -1032,7 +1032,7 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                   Anda dapat menggunakan tag HTML sederhana atau markdown-like untuk memformat pesan: <b>&lt;b&gt;bold&lt;/b&gt;</b> → <code>*bold*</code>, <b>&lt;i&gt;italic&lt;/i&gt;</b> → <code>_italic_</code>, <b>&lt;s&gt;strike&lt;/s&gt;</b> → <code>~strike~</code>, dan <b>&lt;code&gt;</b> untuk monospace. (Catatan: underline tidak didukung oleh WhatsApp; akan dikonversi ke italic.)
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Placeholder yang didukung: <code>{{name}}</code>, <code>{{unique_code}}</code>, dan beberapa variasi untuk link: <code>{{link}}</code>, <code>{{invite_link}}</code>, atau <code>{{url}}</code>. Jika template tidak menyertakan placeholder link, sistem akan menambahkan link undangan di akhir pesan secara otomatis.
+                  Placeholder yang didukung: <code>{'{{name}}'}</code>, <code>{'{{unique_code}}'}</code>, dan beberapa variasi untuk link: <code>{'{{link}}'}</code>, <code>{'{{invite_link}}'}</code>, atau <code>{'{{url}}'}</code>. Jika template tidak menyertakan placeholder link, sistem akan menambahkan link undangan di akhir pesan secara otomatis.
                 </p>
                 <div className="flex justify-end mt-2">
                   <Button size="sm" onClick={() => handleSaveAssetUrl("whatsapp_template", (formData.whatsapp_template as string) || settings?.whatsapp_template || "")}>Simpan Template</Button>
