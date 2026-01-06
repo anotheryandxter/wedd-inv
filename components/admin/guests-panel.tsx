@@ -216,8 +216,9 @@ export function GuestsPanel({ guests, onUpdate, settings }: GuestsPanelProps) {
     if (!hasValidId) {
       const template = settings?.whatsapp_template || 'Halo {{name}}! Anda diundang ke acara kami. Lihat undangan: {{link}}'
       const link = `${window.location.origin}?to=${guest.unique_slug || guest.slug || ""}`
-      let message = template.replace(/{{\s*name\s*}}/gi, guest.name || "")
-      message = message.replace(/{{\s*link\s*}}/gi, link)
+      // Support both {name} and {{name}} (and similar for link/invite_link/url)
+      let message = template.replace(/\{\{?\s*name\s*\}?\}/gi, guest.name || "")
+      message = message.replace(/\{\{?\s*(?:link|invite_link|url)\s*\}?\}/gi, link)
       const phone = normalizePhoneForWhatsApp(guest.phone)
       if (!phone) return alert("Nomor telepon tidak valid")
       const encoded = encodeURIComponent(message)

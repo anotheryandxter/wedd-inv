@@ -450,13 +450,17 @@ export async function generateBlastMessageForGuest(guestId: string, origin?: str
 
   const template = settings?.whatsapp_template || "Halo {name}, Anda diundang. Silakan lihat: {link} (kode: {unique_code})"
 
-  // Detect whether admin included a {link} placeholder; if not, we'll append the link after formatting
-  const includesLinkPlaceholder = /\{\{?\s*link\s*\}?\}/i.test(template)
+  // Detect whether admin included any link-like placeholder (e.g. {link}, {invite_link}, {url}).
+  // If none present, we'll append the link after formatting so the invite always contains the URL.
+  const includesLinkPlaceholder = /\{\{?\s*(?:\w*link\w*|\w*url\w*|\w*invite\w*)\s*\}?\}/i.test(template)
 
+  // Provide multiple keys for template authors: `link`, `invite_link`, and `url` all map to the same value.
   let message = interpolateTemplate(template, {
     name: guest.name,
     unique_code: guest.unique_code,
     link,
+    invite_link: link,
+    url: link,
   })
 
   // Apply WhatsApp formatting conversions (HTML-like tags or markdown shortcuts)
@@ -500,7 +504,8 @@ export async function sendWhatsAppViaTwilio(guestId: string) {
   const baseUrlRaw = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || ""
   const baseUrl = String(baseUrlRaw).replace(/\/$/, "")
   const link = `${baseUrl}?to=${encodeURIComponent(guest.unique_slug || guest.slug || guest.id)}`
-  const message = interpolateTemplate(template, { name: guest.name, unique_code: code, link })
+  // provide multiple keys for compatibility with different placeholder names
+  const message = interpolateTemplate(template, { name: guest.name, unique_code: code, link, invite_link: link, url: link })
 
   const phone = normalizePhoneForWa(guest.phone)
   if (!phone) return { success: false, error: "No phone number" }
