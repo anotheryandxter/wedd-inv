@@ -13,7 +13,9 @@ export async function GET(req: Request) {
     const dateText = settings.wedding_date ? new Date(settings.wedding_date).toLocaleDateString('id-ID', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }) : ''
     const desc = settings.og_description || settings.quote || 'Suatu kehormatan apabila Bapak/Ibu/Saudara dapat hadir pada acara pernikahan kami'
 
-    const baseUrlRaw = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') || process.env.SITE_URL || ''
+    // Prefer the request origin (so custom domains are used). Fall back to env vars.
+    const reqOrigin = (typeof req !== 'undefined' && req && typeof req.url === 'string') ? new URL(req.url).origin : ''
+    const baseUrlRaw = reqOrigin || process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') || process.env.SITE_URL || ''
     const baseUrl = String(baseUrlRaw).replace(/\/$/, '')
 
     const imagePath = settings.og_image || settings.splash_image || settings.hero_image || null
@@ -56,14 +58,19 @@ export async function GET(req: Request) {
       }
     )
 
-    // Add caching headers to the generated image response
+    // Render to an ArrayBuffer so we can return a Response with explicit headers
     try {
-      imageResponse.headers.set('Cache-Control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=86400')
+      const buf = await imageResponse.arrayBuffer()
+      const headers: Record<string, string> = {
+        'Content-Type': 'image/png',
+        'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=86400'
+      }
+      return new Response(buf, { headers })
     } catch (e) {
-      // headers may be immutable in some runtimes; ignore if not settable
+      console.error('OG render/response error', e)
+      // Fallback: return the original response if we can't read buffer
+      return imageResponse
     }
-
-    return imageResponse
   } catch (err) {
     console.error('OG generation error', err)
     return new Response('Error generating image', { status: 500 })
