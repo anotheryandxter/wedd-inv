@@ -2,7 +2,7 @@
     script: typeof document === "object" ? document.currentScript : undefined,
     chunks: [
   "static/chunks/VSCode_wedd-inv_components_0c632396._.js",
-  "static/chunks/VSCode_wedd-inv_lib_55ff187d._.js",
+  "static/chunks/VSCode_wedd-inv_lib_95949fc8._.js",
   "static/chunks/VSCode_wedd-inv_hooks_use-toast_ts_b2f8652a._.js",
   "static/chunks/dd0ea_motion-dom_dist_es_0ba9239a._.js",
   "static/chunks/e184f_framer-motion_dist_es_949b391e._.js",
