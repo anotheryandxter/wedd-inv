@@ -1327,6 +1327,28 @@ export function SettingsPanel({ settings, onUpdate }: SettingsPanelProps) {
                   >
                     Refresh Preview Cache
                   </Button>
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={async () => {
+                      setMessage(null)
+                      if (!settings?.id) return
+                      try {
+                        const res = await fetch('/api/admin/og/generate', { method: 'POST' })
+                        const json = await res.json()
+                        if (!json.success) {
+                          setMessage({ type: 'error', text: json.error || 'Gagal membuat OG statis' })
+                          return
+                        }
+                        setMessage({ type: 'success', text: 'OG statis berhasil dibuat dan dipublikasikan' })
+                        onUpdate(json.data)
+                      } catch (err) {
+                        setMessage({ type: 'error', text: 'Terjadi kesalahan saat membuat OG statis' })
+                      }
+                    }}
+                  >
+                    Generate Static OG
+                  </Button>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
                   Klik "Refresh Preview Cache" untuk memaksa WhatsApp/Facebook mengambil preview gambar terbaru. 
