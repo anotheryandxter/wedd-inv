@@ -9,7 +9,8 @@ export async function POST(req: NextRequest) {
   try {
     const SUPABASE_URL = process.env.SUPABASE_URL
     const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
-    const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') || process.env.SITE_URL || `https://mrgwedding.com`
+    // Prefer the current Vercel deployment URL when available so we call the active runtime
+    const SITE_URL = (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') || process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || `https://mrgwedding.com`
     if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
       return new Response(JSON.stringify({ success: false, error: 'Supabase service key not configured' }), { status: 500 })
     }
