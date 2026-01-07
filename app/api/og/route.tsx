@@ -18,8 +18,14 @@ export async function GET(req: Request) {
     const baseUrlRaw = reqOrigin || process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') || process.env.SITE_URL || ''
     const baseUrl = String(baseUrlRaw).replace(/\/$/, '')
 
-    const imagePath = settings.og_image || settings.splash_image || settings.hero_image || null
+    const imagePath = settings.splash_image || settings.hero_image || settings.og_image || null
     const imageUrl = imagePath ? (String(imagePath).startsWith('http') ? String(imagePath) : `${baseUrl}/${String(imagePath).replace(/^\/*/, '')}`) : null
+
+    // If an original graphic asset exists, redirect to it so scrapers fetch
+    // the original file instead of a generated WebP.
+    if (imageUrl) {
+      return Response.redirect(imageUrl, 302)
+    }
 
     const imageResponse = new ImageResponse(
       (
@@ -55,8 +61,8 @@ export async function GET(req: Request) {
       {
         width: 1200,
         height: 630,
-        // prefer WebP for smaller payloads so scrapers fetch the image
-        format: 'webp',
+        // fall back to PNG when no original asset exists (avoid WebP)
+        format: 'png',
       }
     )
 
@@ -64,7 +70,7 @@ export async function GET(req: Request) {
     const buf = await imageResponse.arrayBuffer()
     return new Response(buf, {
       headers: {
-        'Content-Type': 'image/webp',
+        'Content-Type': 'image/png',
         // keep long client cache but allow CDN to revalidate more frequently
         'Cache-Control': 'public, max-age=31536000, immutable',
         'CDN-Cache-Control': 'public, s-maxage=86400',

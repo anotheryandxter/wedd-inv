@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/admin/og/refresh": {},
+    "/api/admin/og/generate": {},
+    "/api/og": {}
+  }
+}

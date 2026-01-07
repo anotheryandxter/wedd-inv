@@ -1,30 +1,30 @@
 {
   "sorted_middleware": [
-    "/api/og/route"
+    "/api/admin/og/generate/route"
   ],
   "middleware": {},
   "instrumentation": null,
   "functions": {
-    "/api/og/route": {
+    "/api/admin/og/generate/route": {
       "files": [
         "server/middleware-build-manifest.js",
         "server/interception-route-rewrite-manifest.js",
         "server/server-reference-manifest.js",
-        "server/app/api/og/route_client-reference-manifest.js",
-        "server/edge/chunks/VSCode_wedd-inv__next-internal_server_app_api_og_route_actions_d9e52abb.js",
-        "server/edge/chunks/[root-of-the-server]__866b0bbf._.js",
-        "server/edge/chunks/567fb_next_dist_esm_build_templates_edge-app-route_534f7bd3.js",
+        "server/app/api/admin/og/generate/route_client-reference-manifest.js",
+        "server/edge/chunks/33202_wedd-inv__next-internal_server_app_api_admin_og_generate_route_actions_94180e87.js",
+        "server/edge/chunks/[root-of-the-server]__29f4798d._.js",
+        "server/edge/chunks/567fb_next_dist_esm_build_templates_edge-app-route_2cd32bec.js",
         "server/edge/chunks/567fb_next_dist_compiled_@vercel_og_101f3564._.js",
         "server/edge/chunks/0a2b7__pnpm_5dd3f035._.js",
         "server/edge/chunks/0a2b7__pnpm_34c3d788._.js",
-        "server/edge/chunks/turbopack-VSCode_wedd-inv_edge-wrapper_401e8345.js"
+        "server/edge/chunks/turbopack-VSCode_wedd-inv_edge-wrapper_6faee65c.js"
       ],
-      "name": "app/api/og/route",
-      "page": "/api/og/route",
+      "name": "app/api/admin/og/generate/route",
+      "page": "/api/admin/og/generate/route",
       "matchers": [
         {
-          "regexp": "^/api/og(?:/)?$",
-          "originalSource": "/api/og"
+          "regexp": "^/api/admin/og/generate(?:/)?$",
+          "originalSource": "/api/admin/og/generate"
         }
       ],
       "wasm": [
