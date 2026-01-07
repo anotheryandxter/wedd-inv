@@ -17,8 +17,8 @@ export async function GET(req: Request) {
 
     const headers: Record<string, string> = {
       'Content-Type': fetchRes.headers.get('content-type') || 'application/octet-stream',
-      // Set caching for scrapers / CDN
-      'Cache-Control': 'public, max-age=86400, stale-while-revalidate=259200',
+      // Set caching for scrapers / CDN (1 minute)
+      'Cache-Control': 'public, max-age=60, stale-while-revalidate=60',
     }
 
     const body = await fetchRes.arrayBuffer()

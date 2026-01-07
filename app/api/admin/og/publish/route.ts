@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     // Upload using the SDK so we can set cacheControl metadata
     const { error: uploadError } = await supabase.storage
       .from('wedding-assets')
-      .upload(filename, buf, { contentType: 'image/webp', cacheControl: 'public, max-age=86400', upsert: true })
+      .upload(filename, buf, { contentType: 'image/webp', cacheControl: 'public, max-age=60', upsert: true })
 
     if (uploadError) {
       return new Response(JSON.stringify({ success: false, error: uploadError.message }), { status: 500 })
