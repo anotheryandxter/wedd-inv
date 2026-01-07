@@ -13,13 +13,32 @@ export async function POST(req: NextRequest) {
 
     const supabase = createSupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } })
 
-    // Do not bump og_version anymore. Return current settings without modification.
+    // Fetch current settings
     const { data: rows, error: selErr } = await supabase.from('wedding_settings').select('*').limit(1).single()
     if (selErr) {
       return new Response(JSON.stringify({ success: false, error: selErr.message }), { status: 500 })
     }
 
-    return new Response(JSON.stringify({ success: true, data: rows }), { status: 200 })
+    const current = (rows as any) || {}
+    const currentOg = current.og_image || current.splash_image || current.hero_image
+    if (!currentOg) {
+      return new Response(JSON.stringify({ success: false, error: 'No og_image or source asset set' }), { status: 400 })
+    }
+
+    try {
+      const url = new URL(String(currentOg))
+      url.searchParams.set('v', String(Date.now()))
+      const newOg = url.toString()
+
+      const { data: updated, error: updErr } = await supabase.from('wedding_settings').update({ og_image: newOg, updated_at: new Date().toISOString() }).select().limit(1).single()
+      if (updErr) {
+        return new Response(JSON.stringify({ success: false, error: updErr.message }), { status: 500 })
+      }
+
+      return new Response(JSON.stringify({ success: true, url: newOg, data: updated }), { status: 200 })
+    } catch (e: any) {
+      return new Response(JSON.stringify({ success: false, error: 'Invalid og_image URL' }), { status: 400 })
+    }
   } catch (err: any) {
     return new Response(JSON.stringify({ success: false, error: err?.message || String(err) }), { status: 500 })
   }
