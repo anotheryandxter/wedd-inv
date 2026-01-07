@@ -30,18 +30,26 @@ export async function POST(req: NextRequest) {
       url.searchParams.set('v', String(Date.now()))
       const newOg = url.toString()
 
-      const { data: updated, error: updErr } = await supabase
-        .from('wedding_settings')
-        .update({ og_image: newOg, updated_at: new Date().toISOString() })
-        .eq('id', current.id)
-        .select()
-        .limit(1)
-        .single()
-      if (updErr) {
-        return new Response(JSON.stringify({ success: false, error: updErr.message }), { status: 500 })
+      // Use REST patch to ensure proper WHERE clause and bypass any client quirks
+      const settingsRes = await fetch(`${SUPABASE_URL.replace(/\/$/, '')}/rest/v1/wedding_settings?id=eq.${current.id}`, {
+        method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+          apikey: SUPABASE_SERVICE_ROLE_KEY,
+          'Content-Type': 'application/json',
+          Prefer: 'return=representation',
+        },
+        body: JSON.stringify({ og_image: newOg, updated_at: new Date().toISOString() }),
+      })
+
+      if (!settingsRes.ok) {
+        const text = await settingsRes.text().catch(() => '')
+        return new Response(JSON.stringify({ success: false, error: `DB update failed: ${settingsRes.status}`, detail: text }), { status: 500 })
       }
 
-      return new Response(JSON.stringify({ success: true, url: newOg, data: updated }), { status: 200 })
+      const updated = await settingsRes.json()
+      const returned = Array.isArray(updated) ? updated[0] : updated
+      return new Response(JSON.stringify({ success: true, url: newOg, data: returned }), { status: 200 })
     } catch (e: any) {
       return new Response(JSON.stringify({ success: false, error: 'Invalid og_image URL' }), { status: 400 })
     }
