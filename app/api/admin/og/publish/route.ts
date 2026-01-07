@@ -33,9 +33,16 @@ export async function POST(req: Request) {
     const proxyUrl = `${base}${proxyPath}`
 
     // Update wedding_settings to point to proxy URL
+    // First fetch the settings row id so we can include a WHERE clause.
+    const { data: settingsRow, error: fetchErr } = await supabase.from('wedding_settings').select('id').limit(1).single()
+    if (fetchErr || !settingsRow) {
+      return new Response(JSON.stringify({ success: false, error: fetchErr?.message || 'Could not find wedding_settings row' }), { status: 500 })
+    }
+
     const { data: updated, error: updateError } = await supabase
       .from('wedding_settings')
       .update({ og_image: proxyUrl, updated_at: new Date().toISOString() })
+      .eq('id', (settingsRow as any).id)
       .select()
       .single()
 
