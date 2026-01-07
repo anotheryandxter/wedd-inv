@@ -30,7 +30,13 @@ export async function POST(req: NextRequest) {
       url.searchParams.set('v', String(Date.now()))
       const newOg = url.toString()
 
-      const { data: updated, error: updErr } = await supabase.from('wedding_settings').update({ og_image: newOg, updated_at: new Date().toISOString() }).select().limit(1).single()
+      const { data: updated, error: updErr } = await supabase
+        .from('wedding_settings')
+        .update({ og_image: newOg, updated_at: new Date().toISOString() })
+        .eq('id', current.id)
+        .select()
+        .limit(1)
+        .single()
       if (updErr) {
         return new Response(JSON.stringify({ success: false, error: updErr.message }), { status: 500 })
       }
